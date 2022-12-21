@@ -15,6 +15,7 @@
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-query": "^3.39.2",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.5.0",
     "react-scripts": "5.0.1",
@@ -30,7 +31,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-
   },
   "eslintConfig": {
     "extends": [
