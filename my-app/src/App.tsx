@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   useQuery,
@@ -8,21 +7,15 @@ import {
   QueryClient,
   QueryClientProvider
 } from 'react-query';
+import { Example } from 'component/example';
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false
-    },
-    mutations: {}
-  }
-});
+const queryClient = new QueryClient();
 
 export const App = () => {
   return (
     <div className="App">
       <QueryClientProvider client={queryClient}>
-        <Todos />
+        <Example />
       </QueryClientProvider>
     </div>
   );
