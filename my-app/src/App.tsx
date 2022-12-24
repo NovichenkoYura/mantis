@@ -7,7 +7,7 @@ import {
   QueryClient,
   QueryClientProvider
 } from 'react-query';
-import { Example } from 'component/example';
+import { Example } from 'components/example';
 
 const queryClient = new QueryClient();
 
