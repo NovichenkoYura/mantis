@@ -3,17 +3,13 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { locations } from '../constans/locations';
-
-const Layout = () => {
+п;
+export const Layout = () => {
   return (
     <>
       <header>
-        <NavLink to={locations.dashboard.path} className={setActive}>
-          DashBoard
-        </NavLink>
-        <NavLink to={locations.login.path} className={setActive}>
-          Login
-        </NavLink>
+        <NavLink to={locations.dashboard.path}>DashBoard</NavLink>
+        <NavLink to={locations.login.path}>Login</NavLink>
       </header>
 
       <main className="container">
@@ -24,5 +20,3 @@ const Layout = () => {
     </>
   );
 };
-
-export { Layout };

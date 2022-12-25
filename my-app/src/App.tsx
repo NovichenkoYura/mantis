@@ -16,11 +16,11 @@ const queryClient = new QueryClient();
 export const App = () => {
   return (
     <div className="App">
-      {/* <QueryClientProvider client={queryClient}> */}
-      <ComponentRoutes />
+      <QueryClientProvider client={queryClient}>
+        <ComponentRoutes />
 
-      <Example />
-      {/* </QueryClientProvider> */}
+        <Example />
+      </QueryClientProvider>
     </div>
   );
 };
