@@ -19,7 +19,7 @@ export const App = () => {
       <QueryClientProvider client={queryClient}>
         <ComponentRoutes />
 
-        <Example />
+        {/* <Example /> */}
       </QueryClientProvider>
     </div>
   );
