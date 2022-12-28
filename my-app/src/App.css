@@ -37,6 +37,12 @@
   }
 }
 
+/* General */
+.btn{
+  display: block;
+  color: rgb(251,140,0);
+}
+
 /* Header */
 .header__title__link{
   color: white;
