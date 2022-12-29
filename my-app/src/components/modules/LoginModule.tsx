@@ -1,18 +1,10 @@
-import {
-  Button,
-  Card,
-  CardMedia,
-  Container,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  TextField,
-  Typography
-} from '@mui/material';
+import { Card, CardMedia, Dialog, DialogActions, DialogContent, Typography } from '@mui/material';
 
 import { Box } from '@mui/system';
 import { ButtonLoginEnter } from 'components/common/ButtonLoginEnter';
 import { CheckBoxLoginForm } from 'components/common/CheckBoxLoginForm';
+import { InputLoginFormLogin } from 'components/common/InputLoginFormLogin';
+import { InputLoginFormPassword } from 'components/common/InputLoginFormPassword';
 
 export const LoginModule = () => {
   return (
@@ -29,24 +21,9 @@ export const LoginModule = () => {
             alt=""
             className="login__form__img"
           />
-          <TextField
-            autoFocus
-            // margin="dense"
-            id="name"
-            label="Login"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            // margin="dense"
-            id="password"
-            label="Password"
-            type="password"
-            fullWidth
-            variant="standard"
-          />
+          <InputLoginFormLogin />
+          <InputLoginFormPassword />
+
           <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
             <CheckBoxLoginForm />
 
