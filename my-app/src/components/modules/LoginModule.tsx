@@ -14,32 +14,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { Box } from '@mui/system';
 
-import { createTheme } from '@mui/material/styles';
-
-import { purple } from '@mui/material/colors';
-
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: purple[500]
-//     },
-//     secondary: {
-//       main: '#ff9800'
-//     }
-//   }
-// });
-
-const theme = createTheme({
-  palette: {
-    success: {
-      main: purple[500]
-    },
-    secondary: {
-      main: '#ff9800'
-    }
-  }
-});
-
 export const LoginModule = () => {
   return (
     <Card sx={{ height: '100%' }}>
@@ -49,7 +23,7 @@ export const LoginModule = () => {
         sx={{ height: '100%' }}
       />
       <Dialog open aria-label="login">
-        <DialogContent>
+        <DialogContent sx={{ width: 320, height: 400 }}>
           <img
             src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
             alt=""
@@ -57,7 +31,7 @@ export const LoginModule = () => {
           />
           <TextField
             autoFocus
-            margin="dense"
+            // margin="dense"
             id="name"
             label="Login"
             type="email"
@@ -66,7 +40,7 @@ export const LoginModule = () => {
           />
           <TextField
             autoFocus
-            margin="dense"
+            // margin="dense"
             id="password"
             label="Password"
             type="password"
@@ -90,7 +64,9 @@ export const LoginModule = () => {
                 label="Запам'ятати"
               />
             </FormGroup>
-            <Typography variant="subtitle1">Забули пароль?</Typography>
+            <Typography variant="subtitle1" fontSize={14}>
+              Забули пароль?
+            </Typography>
           </Box>
 
           <DialogActions>
