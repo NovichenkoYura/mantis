@@ -1,4 +1,4 @@
-import { useExample } from '../hooks/queries/useExample';
+import { useExample } from 'hooks/queries/useExample';
 
 export const Example = () => {
   const fetchExampleQ = useExample();

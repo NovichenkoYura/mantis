@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-// import { ComponentRoutes } from './components/';
+import 'App.css';
 import {
   useQuery,
   useMutation,
@@ -24,15 +23,3 @@ export const App = () => {
     </div>
   );
 };
-
-// export const App = () => {
-//   return (
-//     <div className="App">
-//       <QueryClientProvider client={queryClient}>
-//         <ComponentRoutes />
-
-//         <Example />
-//       </QueryClientProvider>
-//     </div>
-//   );
-// };
