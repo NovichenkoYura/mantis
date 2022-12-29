@@ -9,10 +9,10 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormGroup from '@mui/material/FormGroup';
+
 import { Box } from '@mui/system';
+import { ButtonLoginEnter } from 'components/common/ButtonLoginEnter';
+import { CheckBoxLoginForm } from 'components/common/CheckBoxLoginForm';
 
 export const LoginModule = () => {
   return (
@@ -48,22 +48,8 @@ export const LoginModule = () => {
             variant="standard"
           />
           <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
-            <FormGroup>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    defaultChecked
-                    sx={{
-                      '& .MuiSvgIcon-root': { fontSize: 28 },
-                      '&.Mui-checked': {
-                        color: 'rgb(251,140,0)'
-                      }
-                    }}
-                  />
-                }
-                label="Запам'ятати"
-              />
-            </FormGroup>
+            <CheckBoxLoginForm />
+
             <Typography variant="subtitle1" fontSize={14}>
               Забули пароль?
             </Typography>
@@ -71,20 +57,7 @@ export const LoginModule = () => {
 
           <DialogActions>
             <Box width="100%" display="flex" justifyContent="center" alignItems="center">
-              <Button
-                variant="contained"
-                color="primary"
-                sx={{
-                  width: 214,
-                  height: 36,
-                  color: 'rgba(0,0,0,0.87)',
-                  backgroundColor: 'rgb(251,140,0)',
-                  '&:hover': {
-                    backgroundColor: '#b26a00'
-                  }
-                }}>
-                Увійти
-              </Button>
+              <ButtonLoginEnter />
             </Box>
           </DialogActions>
         </DialogContent>
