@@ -5,6 +5,7 @@ import { ButtonLoginEnter } from 'components/common/ButtonLoginEnter';
 import { CheckBoxLoginForm } from 'components/common/CheckBoxLoginForm';
 import { InputLoginFormLogin } from 'components/common/InputLoginFormLogin';
 import { InputLoginFormPassword } from 'components/common/InputLoginFormPassword';
+import { CustomTypograthy } from 'style';
 
 export const LoginModule = () => {
   return (
@@ -34,9 +35,10 @@ export const LoginModule = () => {
 
           <DialogActions>
             <Box width="100%" display="flex" justifyContent="center" alignItems="center">
-              <ButtonLoginEnter />
+              <ButtonLoginEnter>Test</ButtonLoginEnter>
             </Box>
           </DialogActions>
+          <CustomTypograthy>Cuatom</CustomTypograthy>
         </DialogContent>
       </Dialog>
     </Card>

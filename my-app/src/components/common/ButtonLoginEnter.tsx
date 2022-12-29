@@ -1,6 +1,10 @@
 import { Button } from '@mui/material';
 
-export const ButtonLoginEnter = () => {
+interface ButtonProps {
+  children?: React.ReactNode;
+}
+
+export const ButtonLoginEnter: React.FC<ButtonProps> = ({ children }) => {
   return (
     <Button
       variant="contained"
@@ -14,7 +18,7 @@ export const ButtonLoginEnter = () => {
           backgroundColor: '#b26a00'
         }
       }}>
-      Увійти
+      {children}
     </Button>
   );
 };
