@@ -3,6 +3,5 @@ import { Box } from '@mui/material';
 import { Typography } from '@mui/material';
 
 export const CustomTypograthy = styled(Typography)`
-  color: red;
-  font-size: 6px;
+  font-size: 13px;
 `;

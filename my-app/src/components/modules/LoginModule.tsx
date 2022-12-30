@@ -1,8 +1,9 @@
 import { Card, CardMedia, Dialog, DialogActions, DialogContent, Typography } from '@mui/material';
 
 import { Box } from '@mui/system';
-import { ButtonLoginEnter } from 'components/common/ButtonLoginEnter';
+import { StyledButtonWrapper } from 'components/common/Button';
 import { CheckBoxLoginForm } from 'components/common/CheckBoxLoginForm';
+import { StyledInputWrapper } from 'components/common/Input';
 import { InputLoginFormLogin } from 'components/common/InputLoginFormLogin';
 import { InputLoginFormPassword } from 'components/common/InputLoginFormPassword';
 import { CustomTypograthy } from 'style';
@@ -24,18 +25,23 @@ export const LoginModule = () => {
           />
           <InputLoginFormLogin />
           <InputLoginFormPassword />
+          <StyledInputWrapper id="name" label="Login" type="email" />
 
           <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
             <CheckBoxLoginForm />
 
-            <Typography variant="subtitle1" fontSize={14}>
+            <Typography
+              variant="subtitle1"
+              fontSize={13}
+              sx={{ color: 'rgb(251, 140, 0)' }}
+              fontWeight={700}>
               Забули пароль?
             </Typography>
           </Box>
 
           <DialogActions>
             <Box width="100%" display="flex" justifyContent="center" alignItems="center">
-              <ButtonLoginEnter>Test</ButtonLoginEnter>
+              <StyledButtonWrapper>УВІЙТИ</StyledButtonWrapper>
             </Box>
           </DialogActions>
           <CustomTypograthy>Cuatom</CustomTypograthy>
