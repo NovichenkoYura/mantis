@@ -1,12 +1,7 @@
 import styled from '@emotion/styled';
-import { TextField } from '@mui/material';
+import { TextField, TextFieldProps } from '@mui/material';
 
-interface InputProps {
-  //   children?: React.ReactNode;
-  id: string;
-  label: string;
-  type: string;
-}
+type InputProps = TextFieldProps;
 
 const StyledInput = styled(TextField)`
 autoFocus;
@@ -14,8 +9,8 @@ fullWidth;
 variant: "standard";
 `;
 
-export const StyledInputWrapper = ({ id, label, type }) => {
-  return <StyledInput id={id} label={label} type={type} />;
+export const StyledInputWrapper: React.FC<InputProps> = (props) => {
+  return <TextField {...props} />;
 };
 
 // export const InputLoginFormLogin = () => {

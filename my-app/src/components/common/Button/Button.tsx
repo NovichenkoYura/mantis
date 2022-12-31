@@ -1,20 +1,10 @@
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
+import { StyledButton } from './styles';
 
 interface ButtonProps {
   children?: React.ReactNode;
 }
-
-const StyledButton = styled(Button)`
-  variant: 'contained';
-  width: 214px;
-  height: 36px;
-  color: rgba(0, 0, 0, 0.87);
-  background-color: rgb(251, 140, 0);
-  &:hover {
-    background-color: #b26a00;
-  }
-`;
 
 export const StyledButtonWrapper: React.FC<ButtonProps> = ({ children }) => {
   return <StyledButton>{children}</StyledButton>;

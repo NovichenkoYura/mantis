@@ -1,7 +1,7 @@
 import { Card, CardMedia, Dialog, DialogActions, DialogContent, Typography } from '@mui/material';
 
 import { Box } from '@mui/system';
-import { StyledButtonWrapper } from 'components/common/Button';
+import { StyledButtonWrapper } from 'components/common/Button/Button';
 import { CheckBoxLoginForm } from 'components/common/CheckBoxLoginForm';
 import { StyledInputWrapper } from 'components/common/Input';
 import { InputLoginFormLogin } from 'components/common/InputLoginFormLogin';
@@ -25,7 +25,16 @@ export const LoginModule = () => {
           />
           <InputLoginFormLogin />
           <InputLoginFormPassword />
-          <StyledInputWrapper id="name" label="Login" type="email" />
+          <StyledInputWrapper
+            id="name"
+            label="Login"
+            type="email"
+            fullWidth
+            variant="standard"
+            autoFocus
+            error={true}
+            helperText="helper text"
+          />
 
           <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
             <CheckBoxLoginForm />
