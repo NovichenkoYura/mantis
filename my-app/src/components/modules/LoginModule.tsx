@@ -4,9 +4,6 @@ import { Box } from '@mui/system';
 import { StyledButtonWrapper } from 'components/common/Button/Button';
 import { CheckBoxLoginForm } from 'components/common/CheckBoxLoginForm';
 import { StyledInputWrapper } from 'components/common/Input';
-import { InputLoginFormLogin } from 'components/common/InputLoginFormLogin';
-import { InputLoginFormPassword } from 'components/common/InputLoginFormPassword';
-import { CustomTypograthy } from 'style';
 
 export const LoginModule = () => {
   return (
@@ -17,14 +14,13 @@ export const LoginModule = () => {
         sx={{ height: '100%' }}
       />
       <Dialog open aria-label="login">
-        <DialogContent sx={{ width: 320, height: 400 }}>
+        <DialogContent sx={{ width: 320, height: 400, padding: 4 }}>
           <img
             src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
             alt=""
             className="login__form__img"
           />
-          <InputLoginFormLogin />
-          <InputLoginFormPassword />
+
           <StyledInputWrapper
             id="name"
             label="Login"
@@ -33,10 +29,25 @@ export const LoginModule = () => {
             variant="standard"
             autoFocus
             error={true}
-            helperText="helper text"
+            // helperText="helper text"
+          />
+          <StyledInputWrapper
+            id="password"
+            label="Password"
+            type="password"
+            fullWidth
+            variant="standard"
+            autoFocus
+            error={true}
+            // helperText="helper text"
           />
 
-          <Box width="100%" display="flex" justifyContent="space-between" alignItems="center">
+          <Box
+            width="100%"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            sx={{ mt: 1 }}>
             <CheckBoxLoginForm />
 
             <Typography
@@ -53,7 +64,6 @@ export const LoginModule = () => {
               <StyledButtonWrapper>УВІЙТИ</StyledButtonWrapper>
             </Box>
           </DialogActions>
-          <CustomTypograthy>Cuatom</CustomTypograthy>
         </DialogContent>
       </Dialog>
     </Card>
