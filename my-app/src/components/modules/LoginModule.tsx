@@ -8,6 +8,7 @@ import React, { useMemo } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAppDispatch } from 'api/hooks';
+import { loginThunk } from 'store/usersSlice';
 
 export const LoginModule = () => {
   const dispatch = useAppDispatch();
@@ -25,12 +26,12 @@ export const LoginModule = () => {
       password: ''
     },
     onSubmit: (values, { resetForm }) => {
-      // dispatch(
-      //   loginThunk({
-      //     email: values.email,
-      //     password: values.password
-      //   })
-      // );
+      dispatch(
+        loginThunk({
+          email: values.email,
+          password: values.password
+        })
+      );
       resetForm();
     },
     validationSchema
