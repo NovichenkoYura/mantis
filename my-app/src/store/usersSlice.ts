@@ -1,3 +1,5 @@
+import { endpoints } from './../api/endpoints';
+import { instance } from './../api/apiConfig';
 // import { loginThunk } from './usersSlice';
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -22,7 +24,7 @@ const initialState: User = {
 export const loginThunk = createAsyncThunk(
   'users/loginUsers',
   async ({ email, password }: Pick<User, 'email' | 'password'>, { getState }: any) => {
-    const response = await axios.get('https://api.mantis.com.ua/token');
+    const response = await instance.get(endpoints.token);
     const data = await response.data;
     console.log('data', data);
     const dataUser = {} as User;
@@ -40,15 +42,6 @@ export const loginThunk = createAsyncThunk(
     console.log('dataUser', dataUser);
   }
 );
-
-// export const getCommentsThunk = createAsyncThunk('comment/getComments', async () => {
-//   const response = await axios.get('http://localhost:3001/comments');
-
-//   const data = await response.data;
-//   return data;
-// });
-
-// );
 
 // export const loginThunk = createAsyncThunk(
 //   'users/loginUsers',
@@ -88,7 +81,6 @@ const usersSlice = createSlice({
     });
     builder.addCase(loginThunk.rejected, (state) => {
       state.isFetching = false;
-      toast(notificationMessages.login.error);
     });
   },
 

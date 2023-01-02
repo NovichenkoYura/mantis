@@ -75,6 +75,7 @@ export const LoginModule = () => {
               />
 
               <Box
+                component={'div'}
                 width="100%"
                 display="flex"
                 justifyContent="space-between"
@@ -83,6 +84,7 @@ export const LoginModule = () => {
                 <CheckBoxLoginForm />
 
                 <Typography
+                  component={'div'}
                   variant="subtitle1"
                   fontSize={13}
                   sx={{ color: 'rgb(251, 140, 0)' }}
@@ -92,7 +94,12 @@ export const LoginModule = () => {
               </Box>
 
               <DialogActions>
-                <Box width="100%" display="flex" justifyContent="center" alignItems="center">
+                <Box
+                  width="100%"
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  component={'div'}>
                   <StyledButtonWrapper>УВІЙТИ</StyledButtonWrapper>
                 </Box>
               </DialogActions>
