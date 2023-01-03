@@ -1,41 +1,38 @@
 import { endpoints } from './../api/endpoints';
 import { instance } from './../api/apiConfig';
-// import { loginThunk } from './usersSlice';
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { instance } from '../api/apiConfig';
 // import { toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 // import { notificationMessages } from '../constants/notificationMessages';
-// import { endpoints } from '../api/endpoints';
 
 interface User {
-  email?: string;
+  login?: string;
   password?: string;
   token: '';
 }
 
 const initialState: User = {
-  email: '',
+  login: '',
   password: '',
   token: ''
 };
 
 export const loginThunk = createAsyncThunk(
   'users/loginUsers',
-  async ({ email, password }: Pick<User, 'email' | 'password'>, { getState }: any) => {
+  async ({ login, password }: Pick<User, 'login' | 'password'>, { getState }: any) => {
     const response = await instance.get(endpoints.token);
     const data = await response.data;
     console.log('data', data);
     const dataUser = {} as User;
     data.forEach((profile: User) => {
-      if (profile.email === email && profile.password === password) {
-        dataUser.email = profile.email;
+      if (profile.login === login && profile.password === password) {
+        dataUser.login = profile.login;
         dataUser.password = profile.password;
         dataUser.token = profile.token;
       }
     });
-    if (!dataUser.email) {
+    if (!dataUser.login) {
       throw new Error('Required');
     }
     return dataUser;
@@ -71,17 +68,17 @@ const usersSlice = createSlice({
   initialState,
 
   extraReducers: (builder) => {
-    builder.addCase(loginThunk.pending, (state) => {
-      state.isFetching = true;
-    });
+    // builder.addCase(loginThunk.pending, (state) => {
+    //   state.isFetching = true;
+    // });
     builder.addCase(loginThunk.fulfilled, (state, action: PayloadAction<User>) => {
       state.token = action.payload.token;
-      state.email = action.payload.email;
-      state.isFetching = false;
+      state.login = action.payload.login;
+      state.password = action.payload.password;
     });
-    builder.addCase(loginThunk.rejected, (state) => {
-      state.isFetching = false;
-    });
+    // builder.addCase(loginThunk.rejected, (state) => {
+    //   state.isFetching = false;
+    // });
   },
 
   reducers: {}

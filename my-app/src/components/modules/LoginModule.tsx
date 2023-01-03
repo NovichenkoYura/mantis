@@ -9,26 +9,29 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAppDispatch } from 'api/hooks';
 import { loginThunk } from 'store/usersSlice';
+// import { createRoot } from 'react-dom/client';
+// const container = document.getElementById('root');
+// const root = createRoot(container!);
 
 export const LoginModule = () => {
   const dispatch = useAppDispatch();
 
   const validationSchema = useMemo(() => {
     return Yup.object({
-      email: Yup.string().email().required('Required'),
-      password: Yup.string().min(5).max(500).required('Required')
+      login: Yup.string().min(3).required('Login field is required'),
+      password: Yup.string().min(5).required('Password field is required')
     });
   }, []);
 
   const formik = useFormik({
     initialValues: {
-      email: '',
+      login: '',
       password: ''
     },
     onSubmit: (values, { resetForm }) => {
       dispatch(
         loginThunk({
-          email: values.email,
+          login: values.login,
           password: values.password
         })
       );
@@ -37,8 +40,8 @@ export const LoginModule = () => {
     validationSchema
   });
   return (
-    <form onSubmit={formik.handleSubmit} className="registrationForm__container logIn">
-      <div className="formik-form">
+    <div>
+      <form onSubmit={formik.handleSubmit}>
         <Card sx={{ height: '100%' }}>
           <CardMedia
             component="img"
@@ -56,12 +59,14 @@ export const LoginModule = () => {
               <StyledInputWrapper
                 id="name"
                 label="Login"
-                type="email"
+                type="login"
                 fullWidth
                 variant="standard"
                 autoFocus
-                error={true}
-                // helperText="helper text"
+                value={formik.values.login}
+                onChange={formik.handleChange}
+                error={formik.touched.login && Boolean(formik.errors.login)}
+                helperText={formik.touched.login && formik.errors.login}
               />
               <StyledInputWrapper
                 id="password"
@@ -70,8 +75,10 @@ export const LoginModule = () => {
                 fullWidth
                 variant="standard"
                 autoFocus
-                error={true}
-                // helperText="helper text"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                error={formik.touched.password && Boolean(formik.errors.password)}
+                helperText={formik.touched.password && formik.errors.password}
               />
 
               <Box
@@ -84,7 +91,7 @@ export const LoginModule = () => {
                 <CheckBoxLoginForm />
 
                 <Typography
-                  component={'div'}
+                  component={'span'}
                   variant="subtitle1"
                   fontSize={13}
                   sx={{ color: 'rgb(251, 140, 0)' }}
@@ -106,31 +113,10 @@ export const LoginModule = () => {
             </DialogContent>
           </Dialog>
         </Card>
-
-        {/* <input
-          id="email"
-          name="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-          className="formik-input"
-          placeholder="Your email..."
-        />
-        <p className="formik-errors-message">{formik.errors.email}</p>
-
-        <input
-          id="name"
-          name="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-          className="formik-input"
-          placeholder="Your password..."
-        />
-        <p className="formik-errors-message">{formik.errors.password}</p>
-
-        <button type="submit" className="main__button">
-          Log in
-        </button> */}
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
+// ReactDOM.render(<LoginModule />, document.getElementById('root'));
+
+// root.render(<LoginModule />);
