@@ -57,7 +57,7 @@ export const LoginModule = () => {
               />
 
               <StyledInputWrapper
-                id="name"
+                id="login"
                 label="Login"
                 type="login"
                 fullWidth
@@ -77,9 +77,12 @@ export const LoginModule = () => {
                 autoFocus
                 value={formik.values.password}
                 onChange={formik.handleChange}
-                error={formik.touched.password && Boolean(formik.errors.password)}
+                error={Boolean(formik.errors.password)}
+                // error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
               />
+              <Typography className="formik-errors-message">{formik.errors.password}</Typography>
+              {/* <p className="formik-errors-message">{formik.errors.password}</p> */}
 
               <Box
                 component={'div'}
