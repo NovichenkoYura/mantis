@@ -9,6 +9,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useAppDispatch } from 'api/hooks';
 import { loginThunk } from 'store/usersSlice';
+// import red from '@mui/material/colors';
 // import { createRoot } from 'react-dom/client';
 // const container = document.getElementById('root');
 // const root = createRoot(container!);
@@ -18,8 +19,8 @@ export const LoginModule = () => {
 
   const validationSchema = useMemo(() => {
     return Yup.object({
-      login: Yup.string().min(3).required('Login field is required'),
-      password: Yup.string().min(5).required('Password field is required')
+      login: Yup.string().required('Login field is required'),
+      password: Yup.string().required('Password field is required')
     });
   }, []);
 
@@ -49,7 +50,7 @@ export const LoginModule = () => {
             sx={{ height: '100%' }}
           />
           <Dialog open aria-label="login">
-            <DialogContent sx={{ width: 320, height: 400, padding: 4 }}>
+            <DialogContent sx={{ width: 320, padding: 4 }}>
               <img
                 src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
                 alt=""
@@ -58,7 +59,7 @@ export const LoginModule = () => {
 
               <StyledInputWrapper
                 id="login"
-                label="Login"
+                placeholder="Login"
                 type="login"
                 fullWidth
                 variant="standard"
@@ -67,22 +68,26 @@ export const LoginModule = () => {
                 onChange={formik.handleChange}
                 error={formik.touched.login && Boolean(formik.errors.login)}
                 helperText={formik.touched.login && formik.errors.login}
+                size="small"
               />
+              <Typography sx={{ fontSize: 11, color: '#d50000' }}>{formik.errors.login}</Typography>
               <StyledInputWrapper
                 id="password"
-                label="Password"
+                // label="Password"
+                placeholder="Password"
                 type="password"
                 fullWidth
                 variant="standard"
                 autoFocus
                 value={formik.values.password}
                 onChange={formik.handleChange}
-                error={Boolean(formik.errors.password)}
-                // error={formik.touched.password && Boolean(formik.errors.password)}
+                error={formik.touched.password && Boolean(formik.errors.password)}
                 helperText={formik.touched.password && formik.errors.password}
+                sx={{ mt: 2 }}
               />
-              <Typography className="formik-errors-message">{formik.errors.password}</Typography>
-              {/* <p className="formik-errors-message">{formik.errors.password}</p> */}
+              <Typography sx={{ fontSize: 11, color: '#d50000' }}>
+                {formik.errors.password}
+              </Typography>
 
               <Box
                 component={'div'}

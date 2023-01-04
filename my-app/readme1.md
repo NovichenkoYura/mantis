@@ -1,5 +1,6 @@
+flux architecture
+
 F12 не виглядає як МУА
-виносити що саме наприклад в компонент  баттон? як стилізувати типовий компоннент?
 export const LoginModule = () => {
   return (
     <Card sx={{ height: '100%' }}>
