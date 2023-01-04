@@ -47,12 +47,13 @@
 .header__title__link{
   color: white;
   text-decoration: none;
-  margin-right: 2px;
+ 
 }
 
 .header__title__link__wrap{
   display: flex;
   justify-content: space-between;
+
 }
 
 /* Login */

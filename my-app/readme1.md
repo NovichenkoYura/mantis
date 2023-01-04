@@ -1,4 +1,5 @@
 flux architecture
+const { cartOpen, closeCart = Function.prototype } = props;
 
 F12 не виглядає як МУА
 export const LoginModule = () => {

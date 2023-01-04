@@ -18,7 +18,11 @@ export const StartPageModule = () => {
           sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}>
           B2B & DISTRIBUTION
         </Typography>
+
         <div className="header__title__link__wrap">
+          <NavLink to={locations.dashboard.path} className="header__title__link">
+            DASHBOARD
+          </NavLink>
           <NavLink to={locations.login.path} className="header__title__link">
             ENGLISH
           </NavLink>

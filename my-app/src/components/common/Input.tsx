@@ -12,3 +12,14 @@ variant: "standard";
 export const StyledInputWrapper: React.FC<InputProps> = (props) => {
   return <TextField {...props} />;
 };
+
+// const CssTextField = styled(TextField, {
+//   shouldForwardProp: (props) => props !== 'focusColor'
+// })((p) => ({
+//   // focused color for input with variant='standard'
+//   '& .MuiInput-underline:after': {
+//     borderBottomColor: p.focusColor
+//   }
+// }));
+
+// <CssTextField focusColor="red" />;
