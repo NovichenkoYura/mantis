@@ -13,65 +13,94 @@ import ViewInArSharpIcon from '@mui/icons-material/ViewInArSharp';
 import ArticleIcon from '@mui/icons-material/Article';
 import UnarchiveIcon from '@mui/icons-material/Unarchive';
 import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
+import ReadMoreSharpIcon from '@mui/icons-material/ReadMoreSharp';
 
 export const SideBarItem = () => {
   return (
     <>
       <ListItem>
         <ListItemAvatar>
-          <Avatar>
+          <Avatar sx={{ bgcolor: 'transparent' }}>
             <WindowSharpIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Main" />
+        <ListItemText
+          primary="Main"
+          sx={{ color: 'white' }}
+          primaryTypographyProps={{ fontSize: '13px' }}
+        />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
-          <Avatar>
+          <Avatar sx={{ bgcolor: 'transparent' }}>
             <NewspaperSharpIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="News" />
+        <ListItemText
+          primary="News"
+          sx={{ color: 'white' }}
+          primaryTypographyProps={{ fontSize: '13px' }}
+        />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
-          <Avatar>
+          <Avatar sx={{ bgcolor: 'transparent' }}>
             <InfoOutlinedIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Information" />
+        <ListItemText
+          primary="Information"
+          sx={{ color: 'white' }}
+          primaryTypographyProps={{ fontSize: '13px' }}
+        />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
-          <Avatar>
+          <Avatar sx={{ bgcolor: 'transparent' }}>
             <ViewInArSharpIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Goods" />
+        <ListItemText
+          primary="Goods"
+          sx={{ color: 'white' }}
+          primaryTypographyProps={{ fontSize: '13px' }}
+        />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
-          <Avatar>
+          <Avatar sx={{ bgcolor: 'transparent' }}>
             <ArticleIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Documments" />
+        <ListItemText
+          primary="Documments"
+          sx={{ color: 'white' }}
+          primaryTypographyProps={{ fontSize: '13px' }}
+        />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
-          <Avatar>
+          <Avatar sx={{ bgcolor: 'transparent' }}>
             <UnarchiveIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Preorders" />
+        <ListItemText
+          primary="Preorders"
+          sx={{ color: 'white' }}
+          primaryTypographyProps={{ fontSize: '13px' }}
+        />
       </ListItem>
       <ListItem>
         <ListItemAvatar>
-          <Avatar>
+          <Avatar sx={{ bgcolor: 'transparent' }}>
             <DataObjectRoundedIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="API" />
+        <ListItemText
+          primary="API"
+          sx={{ color: 'white' }}
+          primaryTypographyProps={{ fontSize: '13px' }}
+        />
       </ListItem>
     </>
   );
