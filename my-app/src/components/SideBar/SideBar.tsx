@@ -6,11 +6,16 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import { SideBarItem } from './SideBarItem';
 import ReadMoreSharpIcon from '@mui/icons-material/ReadMoreSharp';
+import { alpha } from '@mui/material';
 
 export const SideBar = (props) => {
   const { cartOpen, closeCart = Function.prototype } = props;
   return (
-    <Drawer anchor="left" open={cartOpen} onClose={closeCart}>
+    <Drawer
+      anchor="left"
+      open={cartOpen}
+      onClose={closeCart}
+      BackdropProps={{ style: { backgroundColor: 'transparent' } }}>
       <List sx={{ width: '240px', height: '100%', bgcolor: 'rgb(45,50,62)' }}>
         <ListItem sx={{ display: 'flex', height: '60px' }}>
           <ListItemIcon sx={{ display: 'block', mt: '0', mb: '0' }}>
