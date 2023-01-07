@@ -29,7 +29,8 @@ export const LoginModule = () => {
       login: '',
       password: ''
     },
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
+      console.log(values);
       dispatch(
         loginThunk({
           login: values.login,
@@ -43,12 +44,14 @@ export const LoginModule = () => {
   return (
     <div>
       <form onSubmit={formik.handleSubmit}>
+        <button type="submit">test</button>
         <Card sx={{ height: '100%' }}>
           <CardMedia
             component="img"
             src="https://my.mantis.com.ua/assets/images/backgrounds/i2.jpg"
             sx={{ height: '100%' }}
           />
+
           <Dialog open aria-label="login">
             <DialogContent sx={{ width: 320, padding: 4 }}>
               <img
@@ -115,7 +118,7 @@ export const LoginModule = () => {
                   justifyContent="center"
                   alignItems="center"
                   component={'div'}>
-                  <StyledButtonWrapper>УВІЙТИ</StyledButtonWrapper>
+                  <StyledButtonWrapper type="submit">УВІЙТИ</StyledButtonWrapper>
                 </Box>
               </DialogActions>
             </DialogContent>

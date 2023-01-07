@@ -4,8 +4,9 @@ import { StyledButton } from './styles';
 
 interface ButtonProps {
   children?: React.ReactNode;
+  type?: 'submit' | 'button';
 }
 
-export const StyledButtonWrapper: React.FC<ButtonProps> = ({ children }) => {
-  return <StyledButton>{children}</StyledButton>;
+export const StyledButtonWrapper: React.FC<ButtonProps> = ({ children, type }) => {
+  return <StyledButton type={type}>{children}</StyledButton>;
 };

@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { locations } from 'constans/locations';
 import { NavLink } from 'react-router-dom';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export const HeaderDashboard = () => {
   return (
     <AppBar color="transparent">

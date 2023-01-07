@@ -15,24 +15,29 @@ import UnarchiveIcon from '@mui/icons-material/Unarchive';
 import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
 import ReadMoreSharpIcon from '@mui/icons-material/ReadMoreSharp';
 import { StyledListItem } from './listItemStyles';
+const links = [
+  { text: 'Main', icon: WindowSharpIcon },
+  { text: 'News', icon: NewspaperSharpIcon }
+];
 
 export const SideBarItem = () => {
   return (
     <>
-      <StyledListItem>
-        <ListItemAvatar>
-          <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
-            <WindowSharpIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText
-          primary="Main"
-          sx={{ color: '#e0e0e0' }}
-          primaryTypographyProps={{ fontSize: '13px' }}
-        />
-      </StyledListItem>
-
-      <StyledListItem>
+      {links.map(({ text, icon: Icon }) => (
+        <StyledListItem key={text}>
+          <ListItemAvatar>
+            <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
+              <Icon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText
+            primary={text}
+            sx={{ color: '#e0e0e0' }}
+            primaryTypographyProps={{ fontSize: '13px' }}
+          />
+        </StyledListItem>
+      ))}
+      {/* <StyledListItem>
         <ListItemAvatar>
           <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
             <NewspaperSharpIcon />
@@ -103,7 +108,7 @@ export const SideBarItem = () => {
           sx={{ color: '#e0e0e0' }}
           primaryTypographyProps={{ fontSize: '13px' }}
         />
-      </StyledListItem>
+      </StyledListItem> */}
     </>
   );
 };
