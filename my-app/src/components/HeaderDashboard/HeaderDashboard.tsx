@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 export const HeaderDashboard = () => {
   return (
-    <AppBar color="transparent">
+    <AppBar color="transparent" sx={{ boxShadow: 1 }}>
       <Toolbar>
         <Typography
           variant="h6"
