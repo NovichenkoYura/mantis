@@ -21,22 +21,9 @@ const initialState: User = {
 export const loginThunk = createAsyncThunk(
   'users/loginUsers',
   async ({ login, password }: Pick<User, 'login' | 'password'>, { getState }: any) => {
-    const response = await instance.get(endpoints.token);
+    console.log(login, password);
+    const response = await instance.post(endpoints.token, { login, password });
     const data = await response.data;
-    console.log('data', data);
-    const dataUser = {} as User;
-    data.forEach((profile: User) => {
-      if (profile.login === login && profile.password === password) {
-        dataUser.login = profile.login;
-        dataUser.password = profile.password;
-        dataUser.token = profile.token;
-      }
-    });
-    if (!dataUser.login) {
-      throw new Error('Required');
-    }
-    return dataUser;
-    console.log('dataUser', dataUser);
   }
 );
 
