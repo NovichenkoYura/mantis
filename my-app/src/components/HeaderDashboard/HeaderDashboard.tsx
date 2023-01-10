@@ -1,4 +1,4 @@
-import { AppBar, ListItemText, Toolbar, Typography } from '@mui/material';
+import { AppBar, ListItem, ListItemText, Toolbar, Typography } from '@mui/material';
 import { locations } from 'constans/locations';
 import { NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -10,14 +10,16 @@ import { StyledListItem } from 'components/SideBar/listItemStyles';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import PhoneSharpIcon from '@mui/icons-material/PhoneSharp';
+import { StyledToolbar } from './HeaderDachBoardStyled';
+import { Box } from '@mui/system';
 
 export const HeaderDashboard = () => {
   return (
     <AppBar color="transparent" sx={{ boxShadow: 1 }}>
-      <Toolbar>
+      <StyledToolbar>
         <Divider orientation="vertical" flexItem />
 
-        <StyledListItem>
+        <StyledListItem sx={{ width: 1, height: 1 }}>
           <ListItemAvatar>
             <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
               <PhoneSharpIcon />
@@ -30,21 +32,34 @@ export const HeaderDashboard = () => {
           />
         </StyledListItem>
         <Divider orientation="vertical" flexItem />
-        <Typography>€ 42.51</Typography>
-        <Typography>RRC: 40.00</Typography>
+        <Box
+          sx={{
+            width: '208px',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between'
+          }}>
+          <Typography component="div" sx={{ pl: 3 }}>
+            € 42.51
+          </Typography>
+          <Typography component="div" sx={{ pr: 3 }}>
+            RRC: 40.00
+          </Typography>
+        </Box>
+
         <Divider orientation="vertical" flexItem />
 
-        <IconButton>
+        <IconButton sx={{ width: 52, height: 64, p: 0 }}>
           <AttachFileSharpIcon />
         </IconButton>
         <Divider orientation="vertical" flexItem />
-        <IconButton>
+        <IconButton sx={{ width: 52, height: 64, p: 0 }}>
           <PersonIcon />
         </IconButton>
-        <IconButton>
+        <IconButton sx={{ width: 76, height: 64, p: 0 }}>
           <ShoppingCartIcon />
         </IconButton>
-      </Toolbar>
+      </StyledToolbar>
     </AppBar>
   );
 };
