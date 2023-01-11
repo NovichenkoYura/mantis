@@ -23,6 +23,7 @@ export const loginThunk = createAsyncThunk(
   async ({ login, password }: Pick<User, 'login' | 'password'>, { getState }: any) => {
     console.log(login, password);
     const response = await instance.post(endpoints.token, { login, password });
+    console.log(response);
     const data = await response.data;
   }
 );

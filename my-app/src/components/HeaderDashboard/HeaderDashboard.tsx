@@ -34,7 +34,7 @@ export const HeaderDashboard = () => {
         <Divider orientation="vertical" flexItem />
         <Box
           sx={{
-            width: '208px',
+            width: '280px',
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between'

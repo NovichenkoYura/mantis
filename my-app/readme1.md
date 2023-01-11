@@ -1,3 +1,7 @@
+падинг апп бара
+ширину тайпогрфи в хедері
+постман 
+
 flux architecture
 const { cartOpen, closeCart = Function.prototype } = props;
 як пояснити на співбесіді що міц код відрізняєтья від реального проекту
