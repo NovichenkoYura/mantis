@@ -12,8 +12,15 @@ import Avatar from '@mui/material/Avatar';
 import PhoneSharpIcon from '@mui/icons-material/PhoneSharp';
 import { StyledToolbar } from './HeaderDachBoardStyled';
 import { Box } from '@mui/system';
+import axios from 'axios';
 
 export const HeaderDashboard = () => {
+  axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json').then((res) => {
+    const currencyRate = res.data[31].rate.toFixed(2);
+    console.log(currencyRate);
+    return currencyRate;
+  });
+
   return (
     <AppBar color="transparent" sx={{ boxShadow: 1 }}>
       <StyledToolbar>
@@ -42,7 +49,7 @@ export const HeaderDashboard = () => {
           <Typography component="div" sx={{ pl: 3 }}>
             € 42.51
           </Typography>
-          <Typography component="div" sx={{ pr: 3 }}>
+          <Typography component="div" sx={{ pr: 3 }} id="curencyRate">
             RRC: 40.00
           </Typography>
         </Box>

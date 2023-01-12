@@ -14,6 +14,8 @@ export const SideBar = (props) => {
     <Drawer
       anchor="left"
       open={cartOpen}
+      // onFocus={cartOpen}
+      // onBlur={closeCart}
       onClose={closeCart}
       BackdropProps={{ style: { backgroundColor: 'transparent' } }}>
       <List sx={{ width: '240px', height: '100%', bgcolor: 'rgb(45,50,62)', pt: 0.5, pb: 0 }}>
