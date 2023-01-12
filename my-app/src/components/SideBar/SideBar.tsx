@@ -13,7 +13,7 @@ export const SideBar = (props) => {
   return (
     <Drawer
       anchor="left"
-      open={cartOpen}
+      open={false}
       // onFocus={cartOpen}
       // onBlur={closeCart}
       onClose={closeCart}

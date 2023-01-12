@@ -13,19 +13,21 @@ import PhoneSharpIcon from '@mui/icons-material/PhoneSharp';
 import { StyledToolbar } from './HeaderDachBoardStyled';
 import { Box } from '@mui/system';
 import axios from 'axios';
+import { useState } from 'react';
 
 export const HeaderDashboard = () => {
+  const [cur, setCur] = useState(null);
   axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json').then((res) => {
     const currencyRate = res.data[31].rate.toFixed(2);
     console.log(currencyRate);
-    return currencyRate;
+    setCur(currencyRate);
   });
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar color="transparent" sx={{ boxShadow: 1 }}>
         <StyledToolbar>
-          <Divider orientation="vertical" flexItem />
+          <Divider orientation="vertical" flexItem sx={{ ml: 'auto' }} />
 
           <ListItem
             sx={{ width: '208px', display: 'flex', flexDirection: 'row', textAlign: 'right' }}>
@@ -50,7 +52,7 @@ export const HeaderDashboard = () => {
               justifyContent: 'space-between'
             }}>
             <Typography component="div" sx={{ pl: 3 }}>
-              € 42.51
+              € {cur}
             </Typography>
             <Typography component="div" sx={{ pr: 3 }} id="curencyRate">
               RRC: 40.00

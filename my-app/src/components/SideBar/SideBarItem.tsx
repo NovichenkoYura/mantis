@@ -30,21 +30,21 @@ export const SideBarItem = (props) => {
     <>
       {linksSidebar.map(({ text, icon: Icon }) => (
         <StyledListItem key={text}>
-          {iconsOpen && (
-            <ListItemAvatar>
-              <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
-                <Icon />
-              </Avatar>
-            </ListItemAvatar>
-          )}
+          {/* {iconsOpen && ( */}
+          <ListItemAvatar>
+            <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
+              <Icon />
+            </Avatar>
+          </ListItemAvatar>
+          {/* )} */}
 
-          {textOpen && (
-            <ListItemText
-              primary={text}
-              sx={{ color: '#e0e0e0' }}
-              primaryTypographyProps={{ fontSize: '13px' }}
-            />
-          )}
+          {/* {textOpen && ( */}
+          <ListItemText
+            primary={text}
+            sx={{ color: '#e0e0e0' }}
+            primaryTypographyProps={{ fontSize: '13px' }}
+          />
+          {/* )} */}
         </StyledListItem>
       ))}
     </>
