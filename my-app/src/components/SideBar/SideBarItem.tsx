@@ -18,33 +18,22 @@ const linksSidebar = [
   { text: 'API', icon: DataObjectRoundedIcon }
 ];
 
-export const SideBarItem = (props) => {
-  const {
-    iconsOpen,
-    textOpen,
-    closeText = Function.prototype,
-    closeIcons = Function.prototype
-  } = props;
-
+export const SideBarItem = () => {
   return (
     <>
       {linksSidebar.map(({ text, icon: Icon }) => (
         <StyledListItem key={text}>
-          {/* {iconsOpen && ( */}
-          <ListItemAvatar>
+          <ListItemAvatar sx={{ pl: 0 }}>
             <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
               <Icon />
             </Avatar>
           </ListItemAvatar>
-          {/* )} */}
 
-          {textOpen && (
-            <ListItemText
-              primary={text}
-              sx={{ color: '#e0e0e0' }}
-              primaryTypographyProps={{ fontSize: '13px' }}
-            />
-          )}
+          <ListItemText
+            primary={text}
+            sx={{ color: '#e0e0e0' }}
+            primaryTypographyProps={{ fontSize: '13px' }}
+          />
         </StyledListItem>
       ))}
     </>

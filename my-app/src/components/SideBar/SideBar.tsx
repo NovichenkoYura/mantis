@@ -7,17 +7,30 @@ import Typography from '@mui/material/Typography';
 import { SideBarItem } from './SideBarItem';
 import ReadMoreSharpIcon from '@mui/icons-material/ReadMoreSharp';
 import { alpha } from '@mui/material';
+import { useState } from 'react';
 
 export const SideBar = (props) => {
   const { cartOpen, closeCart = Function.prototype } = props;
+  const [widthAppbar, setWidthbar] = useState('70');
+
   return (
     <Drawer
       anchor="left"
       open={true}
       onClose={closeCart}
       BackdropProps={{ style: { backgroundColor: 'transparent' } }}>
-      <List sx={{ width: '70px', height: '100%', bgcolor: 'rgb(45,50,62)', pt: 0.5, pb: 0 }}>
-        <ListItem sx={{ display: 'flex', height: '60px', pt: 0, pb: 0 }}>
+      <List
+        sx={{
+          width: `${widthAppbar}px`,
+          height: '100%',
+          bgcolor: 'rgb(45,50,62)',
+          pt: 0.5,
+          pb: 0,
+          overflow: 'hidden'
+        }}
+        onMouseEnter={() => setWidthbar('240')}
+        onMouseLeave={() => setWidthbar('70')}>
+        <ListItem sx={{ display: 'flex', height: '60px', pt: 0, pb: 0, pl: 1.62 }}>
           <ListItemIcon sx={{ display: 'block', mt: '0', mb: '0' }}>
             <img
               src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
@@ -27,7 +40,7 @@ export const SideBar = (props) => {
           </ListItemIcon>
           <ListItemText
             primary="Mantis B2B"
-            sx={{ color: 'white' }}
+            sx={{ color: 'white', ml: 0.55 }}
             primaryTypographyProps={{ fontSize: '14px' }}
           />
           <ListItemAvatar>

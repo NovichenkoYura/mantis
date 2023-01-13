@@ -22,12 +22,6 @@ export const DashBoardModule = () => {
         openText
       </button>
       <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} />
-      <SideBarItem
-        iconsOpen={isDrawerIconsOpen}
-        closeIcons={() => setDrawerIconsOpen(false)}
-        textOpen={isDraweTextOpen}
-        closeText={() => setDrawerTextOpen(false)}
-      />
     </>
   );
 };
