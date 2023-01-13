@@ -38,13 +38,13 @@ export const SideBarItem = (props) => {
           </ListItemAvatar>
           {/* )} */}
 
-          {/* {textOpen && ( */}
-          <ListItemText
-            primary={text}
-            sx={{ color: '#e0e0e0' }}
-            primaryTypographyProps={{ fontSize: '13px' }}
-          />
-          {/* )} */}
+          {textOpen && (
+            <ListItemText
+              primary={text}
+              sx={{ color: '#e0e0e0' }}
+              primaryTypographyProps={{ fontSize: '13px' }}
+            />
+          )}
         </StyledListItem>
       ))}
     </>

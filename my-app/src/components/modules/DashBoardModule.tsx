@@ -4,7 +4,7 @@ import { SideBarItem } from 'components/SideBar/SideBarItem';
 import { useState } from 'react';
 
 export const DashBoardModule = () => {
-  const [isCartOpen, setCartOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   const [isDrawerIconsOpen, setDrawerIconsOpen] = useState(true);
   const [isDraweTextOpen, setDrawerTextOpen] = useState(false);
 
@@ -21,7 +21,7 @@ export const DashBoardModule = () => {
       <button className="fakebtn" onClick={() => setDrawerTextOpen(true)}>
         openText
       </button>
-      <SideBar cartOpen={isCartOpen} closeCart={() => setCartOpen(false)} />
+      <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} />
       <SideBarItem
         iconsOpen={isDrawerIconsOpen}
         closeIcons={() => setDrawerIconsOpen(false)}

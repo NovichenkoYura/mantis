@@ -13,12 +13,10 @@ export const SideBar = (props) => {
   return (
     <Drawer
       anchor="left"
-      open={false}
-      // onFocus={cartOpen}
-      // onBlur={closeCart}
+      open={true}
       onClose={closeCart}
       BackdropProps={{ style: { backgroundColor: 'transparent' } }}>
-      <List sx={{ width: '240px', height: '100%', bgcolor: 'rgb(45,50,62)', pt: 0.5, pb: 0 }}>
+      <List sx={{ width: '70px', height: '100%', bgcolor: 'rgb(45,50,62)', pt: 0.5, pb: 0 }}>
         <ListItem sx={{ display: 'flex', height: '60px', pt: 0, pb: 0 }}>
           <ListItemIcon sx={{ display: 'block', mt: '0', mb: '0' }}>
             <img

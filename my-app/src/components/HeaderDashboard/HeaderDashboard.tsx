@@ -36,7 +36,6 @@ export const HeaderDashboard = () => {
                 <PhoneSharpIcon />
               </Avatar>
             </ListItemAvatar>
-            {/* <Typography>066-655-22-33</Typography> */}
             <ListItemText
               primary="066-655-22-33"
               sx={{ color: 'rgb(251, 140, 0)', bgcolor: 'transparent' }}
