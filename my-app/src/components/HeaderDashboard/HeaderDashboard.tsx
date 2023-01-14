@@ -19,7 +19,6 @@ export const HeaderDashboard = () => {
   const [cur, setCur] = useState(null);
   axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json').then((res) => {
     const currencyRate = res.data[31].rate.toFixed(2);
-    console.log(currencyRate);
     setCur(currencyRate);
   });
 

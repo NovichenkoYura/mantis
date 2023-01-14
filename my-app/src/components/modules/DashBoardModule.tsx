@@ -11,16 +11,7 @@ export const DashBoardModule = () => {
   return (
     <>
       <HeaderDashboard />
-      <button className="fakebtn" onClick={() => setCartOpen(true)}>
-        open
-      </button>
 
-      <button className="fakebtn" onClick={() => setDrawerIconsOpen(true)}>
-        openIcons
-      </button>
-      <button className="fakebtn" onClick={() => setDrawerTextOpen(true)}>
-        openText
-      </button>
       <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} />
     </>
   );

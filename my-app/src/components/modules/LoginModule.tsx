@@ -43,23 +43,21 @@ export const LoginModule = () => {
   });
   return (
     <div>
-      <form onSubmit={formik.handleSubmit}>
-        <button type="submit">test</button>
-        <Card sx={{ height: '100%' }}>
-          <CardMedia
-            component="img"
-            src="https://my.mantis.com.ua/assets/images/backgrounds/i2.jpg"
-            sx={{ height: '100%' }}
-          />
+      <Card sx={{ height: '100%' }}>
+        <CardMedia
+          component="img"
+          src="https://my.mantis.com.ua/assets/images/backgrounds/i2.jpg"
+          sx={{ height: '100%' }}
+        />
 
-          <Dialog open aria-label="login">
-            <DialogContent sx={{ width: 320, padding: 4 }}>
-              <img
-                src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
-                alt=""
-                className="login__form__img"
-              />
-
+        <Dialog open aria-label="login">
+          <DialogContent sx={{ width: 320, padding: 4 }}>
+            <img
+              src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
+              alt=""
+              className="login__form__img"
+            />
+            <form onSubmit={formik.handleSubmit}>
               <StyledInputWrapper
                 id="login"
                 placeholder="Login"
@@ -121,10 +119,10 @@ export const LoginModule = () => {
                   <StyledButtonWrapper type="submit">УВІЙТИ</StyledButtonWrapper>
                 </Box>
               </DialogActions>
-            </DialogContent>
-          </Dialog>
-        </Card>
-      </form>
+            </form>
+          </DialogContent>
+        </Dialog>
+      </Card>
     </div>
   );
 };
