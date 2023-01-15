@@ -43,86 +43,78 @@ export const LoginModule = () => {
   });
   return (
     <div>
-      <Card sx={{ height: '100%' }}>
-        <CardMedia
-          component="img"
-          src="https://my.mantis.com.ua/assets/images/backgrounds/i2.jpg"
-          sx={{ height: '100%' }}
-        />
-
-        <Dialog open aria-label="login">
-          <DialogContent sx={{ width: 320, padding: 4 }}>
-            <img
-              src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
-              alt=""
-              className="login__form__img"
+      <Dialog open aria-label="login" className="loginpage_bg">
+        <DialogContent sx={{ width: 320, padding: 4 }}>
+          <img
+            src="https://my.mantis.com.ua/assets/images/logo/shop_logo_big.png"
+            alt=""
+            className="login__form__img"
+          />
+          <form onSubmit={formik.handleSubmit}>
+            <StyledInputWrapper
+              id="login"
+              placeholder="Login"
+              type="login"
+              fullWidth
+              variant="standard"
+              autoFocus
+              value={formik.values.login}
+              onChange={formik.handleChange}
+              error={formik.touched.login && Boolean(formik.errors.login)}
+              helperText={formik.touched.login && formik.errors.login}
+              size="small"
             />
-            <form onSubmit={formik.handleSubmit}>
-              <StyledInputWrapper
-                id="login"
-                placeholder="Login"
-                type="login"
-                fullWidth
-                variant="standard"
-                autoFocus
-                value={formik.values.login}
-                onChange={formik.handleChange}
-                error={formik.touched.login && Boolean(formik.errors.login)}
-                helperText={formik.touched.login && formik.errors.login}
-                size="small"
-              />
-              <Typography sx={{ fontSize: 11, color: '#d50000' }}>{formik.errors.login}</Typography>
-              <StyledInputWrapper
-                id="password"
-                // label="Password"
-                placeholder="Password"
-                type="password"
-                fullWidth
-                variant="standard"
-                autoFocus
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={formik.touched.password && Boolean(formik.errors.password)}
-                helperText={formik.touched.password && formik.errors.password}
-                sx={{ mt: 2 }}
-              />
-              <Typography sx={{ fontSize: 11, color: '#d50000' }}>
-                {formik.errors.password}
-              </Typography>
+            <Typography sx={{ fontSize: 11, color: '#d50000' }}>{formik.errors.login}</Typography>
+            <StyledInputWrapper
+              id="password"
+              // label="Password"
+              placeholder="Password"
+              type="password"
+              fullWidth
+              variant="standard"
+              autoFocus
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+              sx={{ mt: 2 }}
+            />
+            <Typography sx={{ fontSize: 11, color: '#d50000' }}>
+              {formik.errors.password}
+            </Typography>
 
+            <Box
+              component={'div'}
+              width="100%"
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mt: 1 }}>
+              <CheckBoxLoginForm />
+
+              <Typography
+                component={'span'}
+                variant="subtitle1"
+                fontSize={13}
+                sx={{ color: 'rgb(251, 140, 0)' }}
+                fontWeight={700}>
+                Забули пароль?
+              </Typography>
+            </Box>
+
+            <DialogActions>
               <Box
-                component={'div'}
                 width="100%"
                 display="flex"
-                justifyContent="space-between"
+                justifyContent="center"
                 alignItems="center"
-                sx={{ mt: 1 }}>
-                <CheckBoxLoginForm />
-
-                <Typography
-                  component={'span'}
-                  variant="subtitle1"
-                  fontSize={13}
-                  sx={{ color: 'rgb(251, 140, 0)' }}
-                  fontWeight={700}>
-                  Забули пароль?
-                </Typography>
+                component={'div'}>
+                <StyledButtonWrapper type="submit">УВІЙТИ</StyledButtonWrapper>
               </Box>
-
-              <DialogActions>
-                <Box
-                  width="100%"
-                  display="flex"
-                  justifyContent="center"
-                  alignItems="center"
-                  component={'div'}>
-                  <StyledButtonWrapper type="submit">УВІЙТИ</StyledButtonWrapper>
-                </Box>
-              </DialogActions>
-            </form>
-          </DialogContent>
-        </Dialog>
-      </Card>
+            </DialogActions>
+          </form>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

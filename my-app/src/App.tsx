@@ -57,34 +57,6 @@ export const App: React.FC<formProps> = () => {
           {/* <Example /> */}
         </QueryClientProvider>
       </div>
-
-      <form onSubmit={formik.handleSubmit} className="registrationForm__container logIn">
-        <div className="formik-form">
-          <input
-            id="login"
-            name="login"
-            onChange={formik.handleChange}
-            value={formik.values.login}
-            className="formik-input"
-            placeholder="Your email..."
-          />
-          <p className="formik-errors-message">{formik.errors.login}</p>
-
-          <input
-            id="name"
-            name="password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
-            className="formik-input"
-            placeholder="Your password..."
-          />
-          <p className="formik-errors-message">{formik.errors.password}</p>
-
-          <button type="submit" className="main__button">
-            Log in
-          </button>
-        </div>
-      </form>
     </>
   );
 };

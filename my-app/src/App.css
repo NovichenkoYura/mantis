@@ -73,3 +73,20 @@
   margin-top: 400px;
   margin-left: 200px;
 }
+
+.loginpage_bg{
+  background: url("https://my.mantis.com.ua/assets/images/backgrounds/i2.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+}
+
+.startpage__bg{
+
+  background: url("https://shop.mantis.com.ua/assets/shop/files/slider/e020b-untitled-1.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+}
