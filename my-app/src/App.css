@@ -47,8 +47,13 @@
 .header__title__link{
   color: white;
   text-decoration: none;
- 
+  font-family: 'Open sans';
+  font-weight: 700;
+  font-size: 17px;
+  z-index: 1;
+  margin-left: 15px;
 }
+
 
 .header__title__link__wrap{
   display: flex;
@@ -82,6 +87,8 @@
         background-size: cover; 
 }
 
+/* Start page */
+
 .startpage__bg{
   height: 100vh;
   display: block;
@@ -96,4 +103,11 @@
 .startpageLogo__img{
   /* display: block;
   margin: 24px auto 56px ; */
+}
+
+.startPage__wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
 }
