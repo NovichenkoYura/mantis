@@ -83,10 +83,17 @@
 }
 
 .startpage__bg{
-
-  background: url("https://shop.mantis.com.ua/assets/shop/files/slider/e020b-untitled-1.jpg") no-repeat center center fixed;
+  height: 100vh;
+  display: block;
+  background: url("https://shop.mantis.com.ua/assets/shop/files/slider/6fb54-untitled-1-recoveredaestj.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover; 
+
+}
+
+.startpageLogo__img{
+  /* display: block;
+  margin: 24px auto 56px ; */
 }
