@@ -14,13 +14,14 @@ import { StyledToolbar } from './HeaderDachBoardStyled';
 import { Box } from '@mui/system';
 import axios from 'axios';
 import { useState } from 'react';
+import { ExampleСurrency } from '../../api/currencyQuerry/currencyQuerry';
 
 export const HeaderDashboard = () => {
-  const [cur, setCur] = useState(null);
-  axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json').then((res) => {
-    const currencyRate = res.data[31].rate.toFixed(2);
-    setCur(currencyRate);
-  });
+  // const [cur, setCur] = useState(null);
+  // axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json').then((res) => {
+  //   const currencyRate = res.data[31].rate.toFixed(2);
+  //   setCur(currencyRate);
+  // });
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -50,7 +51,7 @@ export const HeaderDashboard = () => {
               justifyContent: 'space-between'
             }}>
             <Typography component="div" sx={{ pl: 3 }}>
-              € {cur}
+              € {<ExampleСurrency />}
             </Typography>
             <Typography component="div" sx={{ pr: 3 }} id="curencyRate">
               RRC: 40.00

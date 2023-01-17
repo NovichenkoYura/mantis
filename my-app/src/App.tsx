@@ -56,8 +56,8 @@ export const App: React.FC<formProps> = () => {
         <QueryClientProvider client={queryClient}>
           <ComponentRoutes />
 
-          <Example />
-          <ExampleСurrency />
+          {/* <Example /> */}
+          {/* <ExampleСurrency /> */}
         </QueryClientProvider>
       </div>
     </>
