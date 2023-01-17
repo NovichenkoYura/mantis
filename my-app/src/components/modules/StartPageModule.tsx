@@ -9,7 +9,7 @@ export const StartPageModule = () => {
       <Box component={'div'}>
         <HeaderStartPage />
         <Box className="startpage__bg" sx={{ height: '100vh' }}>
-          <Box sx={{ pt: 20 }}>
+          <Box sx={{ pt: 25 }}>
             <img
               src="https://mantis.com.ua/assets/mantis/img/logo-5.png"
               alt=""
@@ -18,7 +18,9 @@ export const StartPageModule = () => {
             <Box sx={{ fontSize: '48px', color: 'white', fontWeight: '700' }}>
               OUR BRANDS SELL THEMSELVES
             </Box>
-            <Box>wholesale of sport goods</Box>
+            <Box sx={{ fontSize: '22px', color: 'white', fontWeight: '700' }}>
+              wholesale of sports goods
+            </Box>
           </Box>
         </Box>
       </Box>

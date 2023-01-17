@@ -8,6 +8,8 @@ import {
   QueryClientProvider
 } from 'react-query';
 import { Example } from 'components/example';
+import { ExampleСurrency } from './api/currencyQuerry/currencyQuerry';
+
 import { ComponentRoutes } from 'components/componentRoutes';
 import { useAppDispatch } from 'api/hooks';
 import { useFormik } from 'formik';
@@ -54,7 +56,8 @@ export const App: React.FC<formProps> = () => {
         <QueryClientProvider client={queryClient}>
           <ComponentRoutes />
 
-          {/* <Example /> */}
+          <Example />
+          <ExampleСurrency />
         </QueryClientProvider>
       </div>
     </>
