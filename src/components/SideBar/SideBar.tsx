@@ -9,7 +9,7 @@ import ReadMoreSharpIcon from '@mui/icons-material/ReadMoreSharp';
 import { alpha } from '@mui/material';
 import { useState } from 'react';
 
-export const SideBar = (props) => {
+export const SideBar = (props: any) => {
   const { cartOpen, closeCart = Function.prototype } = props;
   const [widthAppbar, setWidthbar] = useState('70');
 
