@@ -1,0 +1,113 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* General */
+.btn{
+  display: block;
+  color: rgb(251,140,0);
+}
+
+/* Header */
+.header__title__link{
+  color: white;
+  text-decoration: none;
+  font-family: 'Open sans';
+  font-weight: 500;
+  font-size: 17px;
+  z-index: 1;
+  margin-left: 15px;
+}
+
+
+.header__title__link__wrap{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+/* Login */
+.login__form__img{
+  display: block;
+  margin: 24px auto 56px ;
+  /* margin-left: auto;
+  margin-right: auto; */
+}
+
+/* fakebtn */
+.fakebtn{
+  margin-top: 150px;
+}
+
+.logIn {
+  margin-top: 400px;
+  margin-left: 200px;
+}
+
+.loginpage_bg{
+  background: url("https://my.mantis.com.ua/assets/images/backgrounds/i2.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+}
+
+/* Start page */
+
+.startpage__bg{
+  height: 100vh;
+  display: block;
+  background: url("https://shop.mantis.com.ua/assets/shop/files/slider/6fb54-untitled-1-recoveredaestj.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover; 
+
+}
+
+.startpageLogo__img{
+  /* display: block;
+  margin: 24px auto 56px ; */
+}
+
+.startPage__wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
