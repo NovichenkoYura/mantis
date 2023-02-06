@@ -26,7 +26,7 @@ export const App = () => {
         <QueryClientProvider client={queryClient}>
           <ComponentRoutes />
 
-          {/* <Example /> */}
+          <Example />
           {/* <ExampleСurrency /> */}
         </QueryClientProvider>
       </div>

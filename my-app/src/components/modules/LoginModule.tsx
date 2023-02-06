@@ -118,6 +118,3 @@ export const LoginModule = () => {
     </div>
   );
 };
-// ReactDOM.render(<LoginModule />, document.getElementById('root'));
-
-// root.render(<LoginModule />);
