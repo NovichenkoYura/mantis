@@ -21,10 +21,10 @@ const initialState: User = {
 export const loginThunk = createAsyncThunk(
   'users/loginUsers',
   async ({ login, password }: Pick<User, 'login' | 'password'>, { getState }: any) => {
-    console.log(login, password);
     const response = await instance.post(endpoints.token, { login, password });
-    console.log(response);
-    const data = await response.data;
+    console.log(response.data.data.key);
+    const data = await response.data.data.key;
+    return data;
   }
 );
 
@@ -56,9 +56,9 @@ const usersSlice = createSlice({
   initialState,
 
   extraReducers: (builder) => {
-    // builder.addCase(loginThunk.pending, (state) => {
-    //   state.isFetching = true;
-    // });
+    builder.addCase(loginThunk.fulfilled, (state, action) => {
+      state.token = action.payload;
+    });
     // builder.addCase(loginThunk.fulfilled, (state, action: PayloadAction<User>) => {
     //   state.token = action.payload.token;
     //   state.login = action.payload.login;

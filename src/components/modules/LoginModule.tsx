@@ -30,7 +30,6 @@ export const LoginModule = () => {
       password: ''
     },
     onSubmit: async (values, { resetForm }) => {
-      console.log(values);
       dispatch(
         loginThunk({
           login: values.login,

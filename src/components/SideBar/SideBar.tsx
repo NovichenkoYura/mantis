@@ -10,7 +10,7 @@ import { alpha } from '@mui/material';
 import { useState } from 'react';
 
 export const SideBar = (props: any) => {
-  const { cartOpen, closeCart = Function.prototype } = props;
+  const { closeCart = Function.prototype } = props;
   const [widthAppbar, setWidthbar] = useState('70');
 
   return (
