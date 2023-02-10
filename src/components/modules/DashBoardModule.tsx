@@ -1,7 +1,9 @@
+import { useAppSelector } from 'api/hooks';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { SideBar } from 'components/SideBar/SideBar';
 import { SideBarItem } from 'components/SideBar/SideBarItem';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const DashBoardModule = () => {
   const [cartOpen, setCartOpen] = useState(false);

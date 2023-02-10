@@ -5,14 +5,23 @@ import { useState, useEffect } from 'react';
 import { locations } from 'constans/locations';
 import { StartPage } from 'pages/StartPage';
 
+import { useAppSelector } from 'api/hooks';
+
 export const Layout = () => {
+  // const { isAuth } = useAppSelector((state) => state.users);
+  // console.log(isAuth);
+
+  // const navigate = useNavigate();
+  // useEffect(() => {
+  //   if (isAuth && isAuth) {
+  //     navigate('/dashboard');
+  //     console.log('test');
+  //   }
+  // }, [isAuth]);
+
   return (
     <>
-      <header>
-        {/* <NavLink to={locations.dashboard.path}>DashBoard</NavLink> */}
-        {/* <NavLink to={locations.login.path}>Вхід для дилерів2</NavLink> */}
-        {/* <NavLink to={locations.startpage.path}>Cтартова сторінка</NavLink> */}
-      </header>
+      <header></header>
       <StartPage />
 
       <main className="container">

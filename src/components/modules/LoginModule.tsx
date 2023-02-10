@@ -4,11 +4,12 @@ import { Box } from '@mui/system';
 import { StyledButtonWrapper } from 'components/common/Button/Button';
 import { CheckBoxLoginForm } from 'components/common/CheckBoxLoginForm';
 import { StyledInputWrapper } from 'components/common/Input';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useAppDispatch } from 'api/hooks';
+import { useAppDispatch, useAppSelector } from 'api/hooks';
 import { loginThunk } from 'store/usersSlice';
+import { useNavigate } from 'react-router-dom';
 // import red from '@mui/material/colors';
 // import { createRoot } from 'react-dom/client';
 // const container = document.getElementById('root');
@@ -16,6 +17,16 @@ import { loginThunk } from 'store/usersSlice';
 
 export const LoginModule = () => {
   const dispatch = useAppDispatch();
+  const { isAuth } = useAppSelector((state) => state.users);
+  // console.log(isAuth);
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (isAuth && isAuth) {
+      navigate('/dashboard');
+      // console.log('test');
+    }
+  }, [isAuth]);
 
   const validationSchema = useMemo(() => {
     return Yup.object({

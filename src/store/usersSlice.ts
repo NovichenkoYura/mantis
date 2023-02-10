@@ -10,19 +10,21 @@ interface User {
   login?: string;
   password?: string;
   token: '';
+  isAuth: boolean;
 }
 
 const initialState: User = {
   login: '',
   password: '',
-  token: ''
+  token: '',
+  isAuth: false
 };
 
 export const loginThunk = createAsyncThunk(
   'users/loginUsers',
   async ({ login, password }: Pick<User, 'login' | 'password'>, { getState }: any) => {
     const response = await instance.post(endpoints.token, { login, password });
-    console.log(response.data.data.key);
+    // console.log(response);
     const data = await response.data.data.key;
     return data;
   }
@@ -58,6 +60,9 @@ const usersSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.token = action.payload;
+      if (action.payload) {
+        state.isAuth = true;
+      }
     });
     // builder.addCase(loginThunk.fulfilled, (state, action: PayloadAction<User>) => {
     //   state.token = action.payload.token;
@@ -69,8 +74,12 @@ const usersSlice = createSlice({
     // });
   },
 
-  reducers: {}
+  reducers: {
+    // getIsAuth(state, action) {
+    //   state.isAuth = action.payload;
+    // }
+  }
 });
 
-// export const {  } = usersSlice.actions;
+// export const { getIsAuth } = usersSlice.actions;
 export default usersSlice.reducer;
