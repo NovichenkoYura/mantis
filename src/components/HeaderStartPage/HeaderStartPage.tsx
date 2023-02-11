@@ -50,8 +50,8 @@ export const HeaderStartPage = () => {
             </Box>
 
             <Box className="header__title__link__wrap" sx={{ display: 'flex', ml: 60 }}>
-              <NavLink to={locations.dashboard.path} className="header__title__link">
-                DASHBOARD
+              <NavLink to={locations.goods.path} className="header__title__link">
+                GOODS
               </NavLink>
               <NavLink to={locations.login.path} className="header__title__link">
                 ENGLISH

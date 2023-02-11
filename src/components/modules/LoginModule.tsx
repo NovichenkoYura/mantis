@@ -10,10 +10,6 @@ import * as Yup from 'yup';
 import { useAppDispatch, useAppSelector } from 'api/hooks';
 import { loginThunk } from 'store/usersSlice';
 import { useNavigate } from 'react-router-dom';
-// import red from '@mui/material/colors';
-// import { createRoot } from 'react-dom/client';
-// const container = document.getElementById('root');
-// const root = createRoot(container!);
 
 export const LoginModule = () => {
   const dispatch = useAppDispatch();

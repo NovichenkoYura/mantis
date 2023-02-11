@@ -1,5 +1,6 @@
 import { AppBar, Card, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import { Accordeon } from 'components/Accordeon/Accordeon';
 import { HeaderStartPage } from 'components/HeaderStartPage/HeaderStartPage';
 import { locations } from 'constans/locations';
 import { NavLink } from 'react-router-dom';

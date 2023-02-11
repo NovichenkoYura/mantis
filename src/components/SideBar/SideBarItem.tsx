@@ -8,6 +8,8 @@ import ArticleIcon from '@mui/icons-material/Article';
 import UnarchiveIcon from '@mui/icons-material/Unarchive';
 import DataObjectRoundedIcon from '@mui/icons-material/DataObjectRounded';
 import { StyledListItem } from './listItemStyles';
+import { NavLink } from 'react-router-dom';
+import { locations } from 'constans/locations';
 const linksSidebar = [
   { text: 'Main', icon: WindowSharpIcon },
   { text: 'News', icon: NewspaperSharpIcon },
@@ -19,10 +21,14 @@ const linksSidebar = [
 ];
 
 export const SideBarItem = () => {
+  const onSideBarItemClick = () => {
+    console.log('1');
+  };
+
   return (
     <>
       {linksSidebar.map(({ text, icon: Icon }) => (
-        <StyledListItem key={text}>
+        <StyledListItem key={text} onClick={() => onSideBarItemClick()}>
           <ListItemAvatar sx={{ pl: 0 }}>
             <Avatar sx={{ bgcolor: 'transparent', color: '#e0e0e0' }}>
               <Icon />

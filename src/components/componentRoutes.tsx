@@ -7,6 +7,7 @@ export const ComponentRoutes = () => {
     <Routes>
       <Route path={locations.login.path} element={locations.login.component} />
       <Route path={locations.dashboard.path} element={locations.dashboard.component} />
+      <Route path={locations.goods.path} element={locations.goods.component} />
 
       <Route path="/" element={<Layout />}>
         <Route path={locations.startpage.path} element={locations.startpage.component} />
