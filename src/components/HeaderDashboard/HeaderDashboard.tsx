@@ -24,7 +24,7 @@ export const HeaderDashboard = () => {
   // });
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ display: 'flex', flex: 1 }}>
       <AppBar color="transparent" sx={{ boxShadow: 1 }}>
         <StyledToolbar>
           <Divider orientation="vertical" flexItem sx={{ ml: 'auto' }} />

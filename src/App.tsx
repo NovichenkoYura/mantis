@@ -8,7 +8,7 @@ import {
   QueryClientProvider
 } from 'react-query';
 import { Example } from 'components/example';
-import { ExampleСurrency } from './api/currencyQuerry/currencyQuerry';
+import { ExampleСurrency, Stock } from './api/currencyQuerry/currencyQuerry';
 
 import { ComponentRoutes } from 'components/componentRoutes';
 import { useAppDispatch } from 'api/hooks';
