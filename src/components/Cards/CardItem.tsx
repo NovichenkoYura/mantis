@@ -18,6 +18,14 @@ export const CardItem = () => {
         <AddCircleOutlineIcon />
       </IconButton>
       <img src="https://img.mantis.com.ua/craft/1903176/1576/0" alt="" height="68px" />
+      <Box>sku</Box>
+      <Box>title</Box>
+      <Box>brand</Box>
+      <Box>category</Box>
+      <Box>activity</Box>
+      <Box>gender</Box>
+      <Box>qty</Box>
+      <Box>container</Box>
     </Box>
   );
 };
