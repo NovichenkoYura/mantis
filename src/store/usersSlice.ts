@@ -2,9 +2,6 @@ import { endpoints } from './../api/endpoints';
 import { instance } from './../api/apiConfig';
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import { toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { notificationMessages } from '../constants/notificationMessages';
 
 interface User {
   login?: string;

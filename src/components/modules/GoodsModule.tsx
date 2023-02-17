@@ -21,7 +21,7 @@ export const GoodsModule = () => {
           {/* <Accordeon /> */}
           {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}
         </Box>
-        {/* <Stock /> */}
+        <Stock />
       </Box>
     </>
   );

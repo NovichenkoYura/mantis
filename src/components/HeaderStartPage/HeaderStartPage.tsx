@@ -2,19 +2,9 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { useAppSelector } from 'api/hooks';
 import { locations } from 'constans/locations';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 
 export const HeaderStartPage = () => {
-  // const { isAuth } = useAppSelector((state) => state.users);
-  // console.log(isAuth);
-
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     navigate('/dashboard');
-  //   }
-  // }, [isAuth]);
   return (
     <>
       <AppBar position="fixed" sx={{ bgcolor: '#424242', opacity: 0.6 }}>

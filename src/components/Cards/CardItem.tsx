@@ -10,6 +10,7 @@ export const CardItem = () => {
         bgcolor: '#fafafa',
         display: 'flex',
         flexDirection: 'row',
+        justifyContent: 'space-between',
         flex: 1,
         height: '150px',
         borderBottom: '2px solid #e0e0e0'
