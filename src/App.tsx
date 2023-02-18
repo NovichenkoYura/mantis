@@ -7,7 +7,6 @@ import {
   QueryClient,
   QueryClientProvider
 } from 'react-query';
-import { Example } from 'components/example';
 import { ExampleСurrency } from './api/currencyQuerry/currencyQuerry';
 
 import { ComponentRoutes } from 'components/componentRoutes';

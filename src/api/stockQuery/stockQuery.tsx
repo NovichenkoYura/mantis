@@ -1,12 +1,17 @@
 import { useAppSelector } from 'api/hooks';
 import { useQuery } from 'react-query';
+// const {
+//   goodsFilteredByBrandsArr,
+//   goodsFilteredByCategoryArr,
+//   goodsFilteredBySeasonsArr,
+//   goodsFilteredByGenderArr,
+//   goodsFilteredByActivitiesArr
+// } = useAppSelector((state) => state.goods);
+const goodsFilteredByBrandsArr = [5075];
+const goodsFilteredByCategoryArr = [11470];
+const goodsFilteredByGenderArr = [5036];
 
-// const { goodsArr } = useAppSelector((state) => state.goods);
-// console.log(goodsArr);
-
-const arrGoodsByBrands = [5075];
-const arrGoodsByCategories = [11470];
-const arrGoodsBySeasons = [20070];
+console.log(goodsFilteredByBrandsArr);
 
 export const goodsQuerry = async () => {
   try {
@@ -20,9 +25,13 @@ export const goodsQuerry = async () => {
         },
         body: JSON.stringify({
           filter: {
-            24: arrGoodsByBrands,
-            20: arrGoodsByCategories,
-            27: arrGoodsBySeasons
+            // 24: [6430]
+
+            24: goodsFilteredByBrandsArr,
+            20: goodsFilteredByCategoryArr,
+            // 27: goodsFilteredBySeasonsArr,
+            // 31: goodsFilteredByActivitiesArr,
+            21: goodsFilteredByGenderArr
             //24: [5075]  //Craft
             // 24: [6430] // X-Bionic
             // 24: [5127]   Oakley
@@ -44,11 +53,11 @@ export const useStock = () => {
   return useQuery(['stock'], goodsQuerry, {});
 };
 
-export const Stock = () => {
-  const fetchStock = useStock();
-  console.log(fetchStock.data && fetchStock.data.data);
-  return <div>1</div>;
-};
+// export const Stock = () => {
+//   const fetchStock = useStock();
+//   console.log(fetchStock.data && fetchStock.data.data[0]);
+//   return <div>1</div>;
+// };
 
 // const { goodsArr } = useAppSelector((state) => state.goods);
 

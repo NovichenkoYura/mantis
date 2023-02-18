@@ -1,10 +1,12 @@
 import { Button, Card } from '@mui/material';
 import { Box } from '@mui/system';
-import { Stock } from 'api/stockQuery/stockQuery';
+import { useStock } from 'api/stockQuery/stockQuery';
+// import { useStock } from 'api/stockQuery/stockQuery';
 import { Accordeon } from 'components/Accordeon/Accordeon';
 import { CardList } from 'components/Cards/CardList';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { SideBar } from 'components/SideBar/SideBar';
+// import { useStock } from 'hooks/queries/useStock';
 import { useState } from 'react';
 import { FilterGoods } from '../FilterGoods/FilterGoods';
 
@@ -21,7 +23,7 @@ export const GoodsModule = () => {
           {/* <Accordeon /> */}
           {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}
         </Box>
-        <Stock />
+        {/* <Stock /> */}
       </Box>
     </>
   );

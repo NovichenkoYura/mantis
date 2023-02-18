@@ -1,7 +1,6 @@
 import { Button } from '@mui/material';
 import { Box } from '@mui/system';
 import { useAppDispatch, useAppSelector } from 'api/hooks';
-import { useStock } from 'api/stockQuery/stockQuery';
 import {
   getGoodsFilteredByBrandsArr,
   getGoodsFilteredByCategoryArr,
@@ -20,9 +19,7 @@ export const FilterGoods = () => {
   //   arrayBrands.push(id);
   //   console.log(arrayBrands);
   // };
-  // const queryCard = useStock();
-  // const queryCardInfo = queryCard.data;
-  // console.log(queryCardInfo);
+
   return (
     <>
       <Box sx={{ width: 280, bgcolor: 'green' }}>
@@ -141,10 +138,26 @@ export const FilterGoods = () => {
             textAlign: 'left'
           }}>
           Activity
-          <Button sx={{ p: 0, width: 80 }}>Run</Button>
-          <Button sx={{ p: 0, width: 80 }}>Bike</Button>
-          <Button sx={{ p: 0, width: 80 }}>Winter</Button>
-          <Button sx={{ p: 0, width: 80 }}>Fitness</Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByActivitiesArr(455))}>
+            Run
+          </Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByActivitiesArr(456))}>
+            Bike
+          </Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByActivitiesArr(459))}>
+            Winter
+          </Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByActivitiesArr(461))}>
+            Fitness
+          </Button>
         </Box>
         <Box
           sx={{
@@ -156,10 +169,26 @@ export const FilterGoods = () => {
             textAlign: 'left'
           }}>
           Gender
-          <Button sx={{ p: 0, width: 80 }}>Unisex</Button>
-          <Button sx={{ p: 0, width: 80 }}>Men</Button>
-          <Button sx={{ p: 0, width: 80 }}>Women</Button>
-          <Button sx={{ p: 0, width: 80 }}>Kids</Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByGenderArr(5035))}>
+            Unisex
+          </Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByGenderArr(5036))}>
+            Men
+          </Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByGenderArr(5037))}>
+            Women
+          </Button>
+          <Button
+            sx={{ p: 0, width: 80 }}
+            onClick={() => dispatch(getGoodsFilteredByGenderArr(5048))}>
+            Kids
+          </Button>
         </Box>
       </Box>
     </>
