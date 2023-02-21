@@ -11,8 +11,6 @@ const goodsFilteredByBrandsArr = [5075];
 const goodsFilteredByCategoryArr = [11470];
 const goodsFilteredByGenderArr = [5036];
 
-console.log(goodsFilteredByBrandsArr);
-
 export const goodsQuerry = async () => {
   try {
     return await (

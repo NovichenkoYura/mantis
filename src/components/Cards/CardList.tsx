@@ -6,14 +6,38 @@ import { CardItem } from './CardItem';
 export const CardList = () => {
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
-  console.log(fetchStock);
+  console.log(fetchStockInfo);
+
+  // const arr1 = fetchStockInfo.reduce((acc: any, value: any) => {
+  //   const sku = value.sku;
+  //   const uniqSku = acc.find((element: any) => element.sku === sku);
+
+  //   if (uniqSku !== undefined) uniqSku.qty += value.qty;
+  //   else acc.push(value);
+
+  //   return acc;
+  // }, []);
+
+  // console.log(arr1);
+
+  // const tmpArray: any = [];
+
+  // function itemCheck(item: any) {
+  //   if (tmpArray.indexOf(item.sku) === -1) {
+  //     tmpArray.push(item.sku);
+  //     return true;
+  //   }
+  //   return false;
+  // }
+
+  // console.log(fetchStockInfo.filter((item: any) => itemCheck(item)));
 
   return (
     <>
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         {fetchStockInfo?.map((item: CardInfoTypes) => (
           <CardItem
-            key={item.ean}
+            key={item.sku}
             sku={item.sku}
             title={item.title}
             brand={item.brand}
@@ -21,6 +45,7 @@ export const CardList = () => {
             activity={item.activity}
             gender={item.gender}
             qty={item.qty}
+            color={item.color}
           />
         ))}
       </Box>

@@ -8,4 +8,5 @@ export interface CardInfoTypes {
   gender: string;
   qty: number;
   ean: string;
+  color: string;
 }

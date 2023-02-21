@@ -15,7 +15,14 @@ export const GoodsModule = () => {
 
   return (
     <>
-      <Box sx={{ display: 'flex', flexDirection: 'column', mt: '67px' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          mt: '67px',
+          width: '100%'
+          // bgcolor: 'orange'
+        }}>
         <HeaderDashboard />
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
           <FilterGoods />
