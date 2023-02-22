@@ -6,10 +6,11 @@ import Divider from '@mui/material/Divider';
 import { CardInfoTypes } from 'types/types';
 import { useState } from 'react';
 import { TableWithGoodsInfo } from './TableWithGoodsInfo';
+import { useStock } from 'api/stockQuery/stockQuery';
 
-type CardItemTypes = Omit<CardInfoTypes, 'ean'>;
+// type CardItemTypes = Omit<CardInfoTypes, 'ean'>;
 
-export const CardItem: React.FC<CardItemTypes> = ({
+export const CardItem: React.FC<CardInfoTypes> = ({
   sku,
   title,
   brand,
@@ -17,9 +18,18 @@ export const CardItem: React.FC<CardItemTypes> = ({
   activity,
   gender,
   qty,
-  color
+  color,
+  ean,
+  size,
+  season,
+  rrp,
+  rrp_uah
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const fetchStock = useStock();
+  const fetchStockInfo = fetchStock.data && fetchStock.data.data;
+  const currentFetchStockInfo = fetchStockInfo.filter((item: any) => item.sku === sku);
+  console.log(currentFetchStockInfo);
   return (
     <>
       <Box
@@ -133,7 +143,19 @@ export const CardItem: React.FC<CardItemTypes> = ({
           for other info
         </Box>
       </Box>
-      {showDropdown && <TableWithGoodsInfo />}
+      {showDropdown &&
+        currentFetchStockInfo?.map((item: CardInfoTypes) => (
+          <TableWithGoodsInfo
+            key={item.ean}
+            barcode={item.ean}
+            сolor={item.color}
+            size={item.size}
+            season={item.season}
+            rrp={item.rrp}
+            rrp_uah={item.rrp_uah}
+            quantity={item.qty}
+          />
+        ))}
     </>
   );
 };

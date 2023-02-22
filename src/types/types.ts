@@ -9,4 +9,8 @@ export interface CardInfoTypes {
   qty: number;
   ean: string;
   color: string;
+  size: string;
+  season: string;
+  rrp: string;
+  rrp_uah: string;
 }

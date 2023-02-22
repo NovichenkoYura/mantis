@@ -37,7 +37,7 @@ export const CardList = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         {fetchStockInfo?.map((item: CardInfoTypes) => (
           <CardItem
-            key={item.sku}
+            key={item.ean}
             sku={item.sku}
             title={item.title}
             brand={item.brand}
@@ -46,6 +46,11 @@ export const CardList = () => {
             gender={item.gender}
             qty={item.qty}
             color={item.color}
+            ean={item.ean}
+            size={item.size}
+            season={item.season}
+            rrp={item.rrp}
+            rrp_uah={item.rrp_uah}
           />
         ))}
       </Box>
