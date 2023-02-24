@@ -11,6 +11,14 @@ import {
 
 export const FilterGoods = () => {
   const dispatch = useAppDispatch();
+  const {
+    goodsFilteredByBrandsArr,
+    goodsFilteredByCategoryArr,
+    goodsFilteredBySeasonsArr,
+    goodsFilteredByGenderArr,
+    goodsFilteredByActivitiesArr
+  } = useAppSelector((state) => state.goods);
+
   // const { goodsArr } = useAppSelector((state) => state.goods);
 
   // const arrayBrands = [5075, 6430] as any; // click push code

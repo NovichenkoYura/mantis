@@ -16,13 +16,11 @@ import axios from 'axios';
 import { useState } from 'react';
 import { ExampleСurrency } from '../../api/currencyQuerry/currencyQuerry';
 
-export const HeaderDashboard = () => {
-  // const [cur, setCur] = useState(null);
-  // axios.get('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json').then((res) => {
-  //   const currencyRate = res.data[31].rate.toFixed(2);
-  //   setCur(currencyRate);
-  // });
+interface BasketProps {
+  handleBasket: () => void;
+}
 
+export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
   return (
     <Box sx={{ display: 'flex', flex: 1 }}>
       <AppBar color="transparent" sx={{ boxShadow: 1 }}>
@@ -70,6 +68,7 @@ export const HeaderDashboard = () => {
             <PersonIcon />
           </IconButton>
           <IconButton
+            onClick={handleBasket}
             sx={{ width: 76, height: 64, p: 0, bgcolor: 'transparent', color: '#616161' }}>
             <ShoppingCartIcon />
           </IconButton>

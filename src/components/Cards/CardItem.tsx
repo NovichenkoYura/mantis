@@ -29,7 +29,7 @@ export const CardItem: React.FC<CardInfoTypes> = ({
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
   const currentFetchStockInfo = fetchStockInfo.filter((item: any) => item.sku === sku);
-  console.log(currentFetchStockInfo);
+  // console.log(currentFetchStockInfo);
   return (
     <>
       <Box

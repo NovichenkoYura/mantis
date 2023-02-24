@@ -1,12 +1,14 @@
 import { useAppSelector } from 'api/hooks';
 import { useQuery } from 'react-query';
 // const {
-//   goodsFilteredByBrandsArr,
-//   goodsFilteredByCategoryArr,
-//   goodsFilteredBySeasonsArr,
-//   goodsFilteredByGenderArr,
-//   goodsFilteredByActivitiesArr
+// goodsFilteredByBrandsArr
+// goodsFilteredByCategoryArr,
+// goodsFilteredBySeasonsArr,
+// goodsFilteredByGenderArr,
+
+// goodsFilteredByActivitiesArr
 // } = useAppSelector((state) => state.goods);
+
 const goodsFilteredByBrandsArr = [5075];
 const goodsFilteredByCategoryArr = [11470];
 const goodsFilteredByGenderArr = [5036];
@@ -23,8 +25,6 @@ export const goodsQuerry = async () => {
         },
         body: JSON.stringify({
           filter: {
-            // 24: [6430]
-
             24: goodsFilteredByBrandsArr,
             20: goodsFilteredByCategoryArr,
             // 27: goodsFilteredBySeasonsArr,

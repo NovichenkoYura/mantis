@@ -6,12 +6,14 @@ import { Accordeon } from 'components/Accordeon/Accordeon';
 import { CardList } from 'components/Cards/CardList';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { SideBar } from 'components/SideBar/SideBar';
+import { Basket } from 'pages/Basket';
 // import { useStock } from 'hooks/queries/useStock';
 import { useState } from 'react';
 import { FilterGoods } from '../FilterGoods/FilterGoods';
 
 export const GoodsModule = () => {
   const [cartOpen, setCartOpen] = useState(false);
+  const [basketOpen, setBasketOpen] = useState(false);
 
   return (
     <>
@@ -23,12 +25,13 @@ export const GoodsModule = () => {
           width: '100%'
           // bgcolor: 'orange'
         }}>
-        <HeaderDashboard />
+        <HeaderDashboard handleBasket={() => setBasketOpen(true)} />
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
           <FilterGoods />
           <CardList />
           {/* <Accordeon /> */}
           {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}
+          <Basket basketOpen={basketOpen} closeBasket={() => setBasketOpen(false)} />
         </Box>
         {/* <Stock /> */}
       </Box>

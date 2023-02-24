@@ -1,19 +1,13 @@
-import { useAppSelector } from 'api/hooks';
-import { Accordeon } from 'components/Accordeon/Accordeon';
 import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { SideBar } from 'components/SideBar/SideBar';
-import { SideBarItem } from 'components/SideBar/SideBarItem';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export const DashBoardModule = () => {
   const [cartOpen, setCartOpen] = useState(false);
-  const [isDrawerIconsOpen, setDrawerIconsOpen] = useState(true);
-  const [isDraweTextOpen, setDrawerTextOpen] = useState(false);
 
   return (
     <>
-      <HeaderDashboard />
+      {/* <HeaderDashboard /> */}
 
       <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} />
       {/* <Accordeon /> */}
