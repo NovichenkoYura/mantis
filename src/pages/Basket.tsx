@@ -8,6 +8,7 @@ import ReadMoreSharpIcon from '@mui/icons-material/ReadMoreSharp';
 import { alpha } from '@mui/material';
 import { useState } from 'react';
 import { StyledButtonWrapper } from 'components/common/Button/Button';
+import { BasketItem } from './BasketItem';
 
 export const Basket = (props: any) => {
   const { closeBasket = Function.prototype, basketOpen } = props;
@@ -15,7 +16,7 @@ export const Basket = (props: any) => {
   return (
     <Drawer
       anchor="right"
-      open={true}
+      open={basketOpen}
       onClose={closeBasket}
       BackdropProps={{ style: { backgroundColor: 'transparent' } }}>
       <Box
@@ -35,8 +36,8 @@ export const Basket = (props: any) => {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            bgcolor: 'grey',
-            p: '10px'
+            p: '10px',
+            borderBottom: '1px solid #e0e0e0'
           }}>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             In basket: <span>46E</span>
@@ -51,9 +52,10 @@ export const Basket = (props: any) => {
           width: '640px',
           height: '100%',
           pt: 0.5,
-          pb: 0,
-          overflow: 'hidden'
+          pb: 0
+          // overflow: 'hidden'
         }}>
+        <BasketItem />
         {/* <ListItem sx={{ display: 'flex', height: '60px', pt: 0, pb: 0, pl: 1.62 }}>
           <ListItemIcon sx={{ display: 'block', mt: '0', mb: '0' }}>
             <img

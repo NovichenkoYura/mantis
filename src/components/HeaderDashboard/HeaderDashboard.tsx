@@ -1,4 +1,4 @@
-import { AppBar, ListItem, ListItemText, Toolbar, Typography } from '@mui/material';
+import { AppBar, Badge, ListItem, ListItemText, Toolbar, Typography } from '@mui/material';
 import { locations } from 'constans/locations';
 import { NavLink } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -15,12 +15,17 @@ import { Box } from '@mui/system';
 import axios from 'axios';
 import { useState } from 'react';
 import { ExampleСurrency } from '../../api/currencyQuerry/currencyQuerry';
+import { useAppSelector } from 'api/hooks';
 
 interface BasketProps {
   handleBasket: () => void;
 }
 
 export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
+  const { qtyEanForBasket } = useAppSelector((state) => state.goods);
+
+  const qtyForBadgeOfBasket = qtyEanForBasket.reduce((a, v) => a + Number(v.qty), 0);
+
   return (
     <Box sx={{ display: 'flex', flex: 1 }}>
       <AppBar color="transparent" sx={{ boxShadow: 1 }}>
@@ -70,7 +75,9 @@ export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
           <IconButton
             onClick={handleBasket}
             sx={{ width: 76, height: 64, p: 0, bgcolor: 'transparent', color: '#616161' }}>
-            <ShoppingCartIcon />
+            <Badge badgeContent={qtyForBadgeOfBasket}>
+              <ShoppingCartIcon />
+            </Badge>
           </IconButton>
         </StyledToolbar>
       </AppBar>

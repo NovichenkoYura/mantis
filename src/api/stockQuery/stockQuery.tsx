@@ -1,19 +1,22 @@
 import { useAppSelector } from 'api/hooks';
 import { useQuery } from 'react-query';
-// const {
-// goodsFilteredByBrandsArr
-// goodsFilteredByCategoryArr,
-// goodsFilteredBySeasonsArr,
-// goodsFilteredByGenderArr,
-
-// goodsFilteredByActivitiesArr
-// } = useAppSelector((state) => state.goods);
+import { useEffect } from 'react';
 
 const goodsFilteredByBrandsArr = [5075];
 const goodsFilteredByCategoryArr = [11470];
 const goodsFilteredByGenderArr = [5036];
 
 export const goodsQuerry = async () => {
+  // const {
+  //   goodsFilteredByBrandsArr,
+  //   goodsFilteredByCategoryArr,
+  //   goodsFilteredBySeasonsArr,
+  //   goodsFilteredByGenderArr,
+
+  //   goodsFilteredByActivitiesArr
+  // } = useAppSelector((state) => state.goods);
+
+  console.log(goodsFilteredByBrandsArr);
   try {
     return await (
       await fetch('https://api.mantis.com.ua/report/stock', {
@@ -50,6 +53,10 @@ export const goodsQuerry = async () => {
 export const useStock = () => {
   return useQuery(['stock'], goodsQuerry, {});
 };
+
+// useEffect(() => {
+//   useStock();
+// }, [goodsFilteredByBrandsArr]);
 
 // export const Stock = () => {
 //   const fetchStock = useStock();
