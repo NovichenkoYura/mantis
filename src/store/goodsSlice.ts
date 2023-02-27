@@ -6,7 +6,7 @@ interface Goods {
   goodsFilteredBySeasonsArr: number[];
   goodsFilteredByActivitiesArr: number[];
   goodsFilteredByGenderArr: number[];
-  qtyEanForBasket: [];
+  goodsInfoForBasket: [];
 }
 
 const initialState: Goods = {
@@ -15,7 +15,7 @@ const initialState: Goods = {
   goodsFilteredBySeasonsArr: [],
   goodsFilteredByActivitiesArr: [],
   goodsFilteredByGenderArr: [],
-  qtyEanForBasket: []
+  goodsInfoForBasket: []
 };
 
 const goodsSlice = createSlice({
@@ -59,10 +59,14 @@ const goodsSlice = createSlice({
         : state.goodsFilteredByGenderArr.push(action.payload);
     },
     getInfoFromOrderForBasket(state, action) {
-      console.log(typeof action.payload);
-      state.qtyEanForBasket.push(action.payload);
-      // state.qtyGoodsInBasket = action.payload.qty;
-      // state.eanGoodsInBasket = action.payload.ean;
+      console.log(action.payload);
+      state.goodsInfoForBasket.push(action.payload);
+    },
+    deleteOrderFromBasket(state, action) {
+      console.log(action.payload);
+      state.goodsInfoForBasket = state.goodsInfoForBasket.filter(
+        (item: any) => item.ean !== action.payload
+      );
     }
   }
 });
@@ -73,6 +77,7 @@ export const {
   getGoodsFilteredBySeasonsArr,
   getGoodsFilteredByActivitiesArr,
   getGoodsFilteredByGenderArr,
-  getInfoFromOrderForBasket
+  getInfoFromOrderForBasket,
+  deleteOrderFromBasket
 } = goodsSlice.actions;
 export default goodsSlice.reducer;

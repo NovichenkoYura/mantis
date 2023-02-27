@@ -1,9 +1,20 @@
 import Input from '@mui/material/Input/Input';
 import Table from '@mui/material/Table';
+import { color } from '@mui/system';
 import { useAppDispatch } from 'api/hooks';
 import { getInfoFromOrderForBasket } from 'store/goodsSlice';
 
-export const TableWithGoodsInfo = ({ barcode, сolor, size, season, rrp, rrp_uah, quantity }) => {
+export const TableWithGoodsInfo = ({
+  barcode,
+  sku,
+  title,
+  сolor,
+  size,
+  season,
+  rrp,
+  rrp_uah,
+  quantity
+}) => {
   const dispatch = useAppDispatch();
 
   return (
@@ -35,7 +46,17 @@ export const TableWithGoodsInfo = ({ barcode, сolor, size, season, rrp, rrp_uah
               type="number"
               disableUnderline
               onChange={(e) =>
-                dispatch(getInfoFromOrderForBasket({ qty: e.target.value, ean: barcode }))
+                dispatch(
+                  getInfoFromOrderForBasket({
+                    qty: +e.target.value,
+                    ean: barcode,
+                    сolor: сolor,
+                    size: size,
+                    rrp: rrp,
+                    sku: sku,
+                    title: title
+                  })
+                )
               }
             />
           </td>

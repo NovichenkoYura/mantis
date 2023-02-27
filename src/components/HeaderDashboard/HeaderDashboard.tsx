@@ -22,9 +22,9 @@ interface BasketProps {
 }
 
 export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
-  const { qtyEanForBasket } = useAppSelector((state) => state.goods);
+  const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
 
-  const qtyForBadgeOfBasket = qtyEanForBasket.reduce((a, v) => a + Number(v.qty), 0);
+  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + Number(v.qty), 0);
 
   return (
     <Box sx={{ display: 'flex', flex: 1 }}>

@@ -148,6 +148,8 @@ export const CardItem: React.FC<CardInfoTypes> = ({
           <TableWithGoodsInfo
             key={item.ean}
             barcode={item.ean}
+            sku={item.sku}
+            title={item.title}
             сolor={item.color}
             size={item.size}
             season={item.season}
