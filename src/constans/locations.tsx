@@ -1,11 +1,11 @@
-import { DashBoardModule } from 'components/modules/DashBoardModule';
-import { GoodsModule } from 'components/modules/GoodsModule';
-import { LoginModule } from 'components/modules/LoginModule';
-import { StartPageModule } from 'components/modules/StartPageModule';
+import { DashBoardPage } from 'pages/DashBoardPage';
+import { GoodsPage } from 'pages/GoodsPage';
+import { LoginPage } from 'pages/LoginPage';
+import { StartPage } from 'pages/StartPage';
 
 export const locations = {
-  startpage: { path: '/startpage', component: <StartPageModule /> },
-  dashboard: { path: '/dashboard', component: <DashBoardModule /> },
-  login: { path: '/log_in', component: <LoginModule /> },
-  goods: { path: '/goods', component: <GoodsModule /> }
+  startpage: { path: '/startpage', component: <StartPage /> },
+  dashboardpage: { path: '/dashboardpage', component: <DashBoardPage /> },
+  login: { path: '/log_in', component: <LoginPage /> },
+  goods: { path: '/goods', component: <GoodsPage /> }
 };

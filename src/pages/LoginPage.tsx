@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from 'api/hooks';
 import { loginThunk } from 'store/usersSlice';
 import { useNavigate } from 'react-router-dom';
 
-export const LoginModule = () => {
+export const LoginPage = () => {
   const dispatch = useAppDispatch();
   const { isAuth } = useAppSelector((state) => state.users);
   // console.log(isAuth);
@@ -19,7 +19,7 @@ export const LoginModule = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (isAuth && isAuth) {
-      navigate('/dashboard');
+      navigate('/dashboardpage');
       // console.log('test');
     }
   }, [isAuth]);

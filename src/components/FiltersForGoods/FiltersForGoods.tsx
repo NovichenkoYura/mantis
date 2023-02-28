@@ -9,7 +9,7 @@ import {
   getGoodsFilteredByGenderArr
 } from 'store/goodsSlice';
 
-export const FilterGoods = () => {
+export const FiltersForGoods = () => {
   const dispatch = useAppDispatch();
   const {
     goodsFilteredByBrandsArr,

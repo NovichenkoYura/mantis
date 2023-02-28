@@ -9,9 +9,9 @@ import { SideBar } from 'components/SideBar/SideBar';
 import { Basket } from 'pages/Basket';
 // import { useStock } from 'hooks/queries/useStock';
 import { useState } from 'react';
-import { FilterGoods } from '../FilterGoods/FilterGoods';
+import { FiltersForGoods } from '../components/FiltersForGoods/FiltersForGoods';
 
-export const GoodsModule = () => {
+export const GoodsPage = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [basketOpen, setBasketOpen] = useState(false);
 
@@ -27,7 +27,7 @@ export const GoodsModule = () => {
         }}>
         <HeaderDashboard handleBasket={() => setBasketOpen(true)} />
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-          <FilterGoods />
+          <FiltersForGoods />
           <CardList />
           {/* <Accordeon /> */}
           {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}

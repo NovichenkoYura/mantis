@@ -1,9 +1,22 @@
 import { Box } from '@mui/system';
+import { useAppSelector } from 'api/hooks';
 import { useStock } from 'api/stockQuery/stockQuery';
 import { CardInfoTypes } from 'types/types';
+import { number } from 'yup';
 import { CardItem } from './CardItem';
 
 export const CardList = () => {
+  const {
+    goodsFilteredByBrandsArr,
+    goodsFilteredByCategoryArr,
+    goodsFilteredBySeasonsArr,
+    goodsFilteredByGenderArr,
+
+    goodsFilteredByActivitiesArr
+  } = useAppSelector((state) => state.goods);
+
+  console.log(goodsFilteredByBrandsArr);
+
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
   // console.log(fetchStockInfo);

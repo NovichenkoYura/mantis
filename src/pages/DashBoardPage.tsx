@@ -2,7 +2,7 @@ import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { SideBar } from 'components/SideBar/SideBar';
 import { useState } from 'react';
 
-export const DashBoardModule = () => {
+export const DashBoardPage = () => {
   const [cartOpen, setCartOpen] = useState(false);
 
   return (
