@@ -27,9 +27,10 @@ export const GoodsPage = () => {
         }}>
         <HeaderDashboard handleBasket={() => setBasketOpen(true)} />
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-          <FiltersForGoods />
+          <Accordeon />
+          {/* <FiltersForGoods /> */}
           <CardList />
-          {/* <Accordeon /> */}
+
           {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}
           <Basket basketOpen={basketOpen} closeBasket={() => setBasketOpen(false)} />
         </Box>
@@ -38,3 +39,24 @@ export const GoodsPage = () => {
     </>
   );
 };
+
+// <>
+//       <Box
+//         sx={{
+//           display: 'flex',
+//           flexDirection: 'column',
+//           mt: '67px',
+//           width: '100%'
+//           // bgcolor: 'orange'
+//         }}>
+//         <HeaderDashboard handleBasket={() => setBasketOpen(true)} />
+//         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+//           <FiltersForGoods />
+//           <CardList />
+//           {/* <Accordeon /> */}
+//           {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}
+//           <Basket basketOpen={basketOpen} closeBasket={() => setBasketOpen(false)} />
+//         </Box>
+//         {/* <Stock /> */}
+//       </Box>
+//     </>

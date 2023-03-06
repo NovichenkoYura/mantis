@@ -111,3 +111,8 @@
   justify-content: space-between;
   align-items: baseline;
 }
+
+/* Filter */
+.filter__item{
+  cursor: pointer;
+}

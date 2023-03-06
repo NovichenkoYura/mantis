@@ -50,7 +50,7 @@ export const FiltersForGoods = () => {
           <Button
             onClick={() => dispatch(getGoodsFilteredByBrandsArr(6430))}
             sx={{ p: 0, width: 80 }}>
-            X-Bioni
+            X-Bionic
           </Button>
           <Button
             onClick={() => dispatch(getGoodsFilteredByBrandsArr(5127))}

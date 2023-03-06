@@ -1,3 +1,4 @@
+import { title } from 'process';
 import { createSlice } from '@reduxjs/toolkit';
 
 interface Goods {
@@ -23,61 +24,72 @@ const goodsSlice = createSlice({
   initialState,
 
   reducers: {
-    getGoodsFilteredByBrandsArr(state, action) {
-      state.goodsFilteredByBrandsArr.includes(action.payload)
-        ? (state.goodsFilteredByBrandsArr = state.goodsFilteredByBrandsArr.filter(
-            (item: any) => item !== action.payload
-          ))
-        : state.goodsFilteredByBrandsArr.push(action.payload);
-    },
-    getGoodsFilteredByCategoryArr(state, action) {
-      state.goodsFilteredByCategoryArr.includes(action.payload)
-        ? (state.goodsFilteredByCategoryArr = state.goodsFilteredByCategoryArr.filter(
-            (item: any) => item !== action.payload
-          ))
-        : state.goodsFilteredByCategoryArr.push(action.payload);
-    },
-    getGoodsFilteredBySeasonsArr(state, action) {
-      state.goodsFilteredBySeasonsArr.includes(action.payload)
-        ? (state.goodsFilteredBySeasonsArr = state.goodsFilteredBySeasonsArr.filter(
-            (item: any) => item !== action.payload
-          ))
-        : state.goodsFilteredBySeasonsArr.push(action.payload);
-    },
-    getGoodsFilteredByActivitiesArr(state, action) {
-      state.goodsFilteredByActivitiesArr.includes(action.payload)
-        ? (state.goodsFilteredByActivitiesArr = state.goodsFilteredByActivitiesArr.filter(
-            (item: any) => item !== action.payload
-          ))
-        : state.goodsFilteredByActivitiesArr.push(action.payload);
-    },
-    getGoodsFilteredByGenderArr(state, action) {
-      state.goodsFilteredByGenderArr.includes(action.payload)
-        ? (state.goodsFilteredByGenderArr = state.goodsFilteredByGenderArr.filter(
-            (item: any) => item !== action.payload
-          ))
-        : state.goodsFilteredByGenderArr.push(action.payload);
-    },
-    getInfoFromOrderForBasket(state, action) {
+    getFilteredGoods(state, action) {
+      console.log(action.payload.item.title);
+      console.log(action.payload.item.list.number);
       console.log(action.payload);
-      state.goodsInfoForBasket.push(action.payload);
-    },
-    deleteOrderFromBasket(state, action) {
-      console.log(action.payload);
-      state.goodsInfoForBasket = state.goodsInfoForBasket.filter(
-        (item: any) => item.ean !== action.payload
-      );
+      // state.goodsFilteredByBrandsArr.includes(action.payload)
+      //   ? (state.goodsFilteredByBrandsArr = state.goodsFilteredByBrandsArr.filter(
+      //       (item: any) => item !== action.payload
+      //     ))
+      //   : state.goodsFilteredByBrandsArr.push(action.payload);
     }
+    // getGoodsFilteredByBrandsArr(state, action) {
+    //   state.goodsFilteredByBrandsArr.includes(action.payload)
+    //     ? (state.goodsFilteredByBrandsArr = state.goodsFilteredByBrandsArr.filter(
+    //         (item: any) => item !== action.payload
+    //       ))
+    //     : state.goodsFilteredByBrandsArr.push(action.payload);
+    // },
+    // getGoodsFilteredByCategoryArr(state, action) {
+    //   state.goodsFilteredByCategoryArr.includes(action.payload)
+    //     ? (state.goodsFilteredByCategoryArr = state.goodsFilteredByCategoryArr.filter(
+    //         (item: any) => item !== action.payload
+    //       ))
+    //     : state.goodsFilteredByCategoryArr.push(action.payload);
+    // },
+    // getGoodsFilteredBySeasonsArr(state, action) {
+    //   state.goodsFilteredBySeasonsArr.includes(action.payload)
+    //     ? (state.goodsFilteredBySeasonsArr = state.goodsFilteredBySeasonsArr.filter(
+    //         (item: any) => item !== action.payload
+    //       ))
+    //     : state.goodsFilteredBySeasonsArr.push(action.payload);
+    // },
+    // getGoodsFilteredByActivitiesArr(state, action) {
+    //   state.goodsFilteredByActivitiesArr.includes(action.payload)
+    //     ? (state.goodsFilteredByActivitiesArr = state.goodsFilteredByActivitiesArr.filter(
+    //         (item: any) => item !== action.payload
+    //       ))
+    //     : state.goodsFilteredByActivitiesArr.push(action.payload);
+    // },
+    // getGoodsFilteredByGenderArr(state, action) {
+    //   state.goodsFilteredByGenderArr.includes(action.payload)
+    //     ? (state.goodsFilteredByGenderArr = state.goodsFilteredByGenderArr.filter(
+    //         (item: any) => item !== action.payload
+    //       ))
+    //     : state.goodsFilteredByGenderArr.push(action.payload);
+    // },
+    // getInfoFromOrderForBasket(state, action) {
+    //   console.log(action.payload);
+    //   state.goodsInfoForBasket.push(action.payload);
+    // },
+    // deleteOrderFromBasket(state, action) {
+    //   console.log(action.payload);
+    //   state.goodsInfoForBasket = state.goodsInfoForBasket.filter(
+    //     (item: any) => item.ean !== action.payload
+    //   );
+    // }
   }
 });
 
 export const {
-  getGoodsFilteredByBrandsArr,
-  getGoodsFilteredByCategoryArr,
-  getGoodsFilteredBySeasonsArr,
-  getGoodsFilteredByActivitiesArr,
-  getGoodsFilteredByGenderArr,
-  getInfoFromOrderForBasket,
-  deleteOrderFromBasket
+  // getGoodsFilteredByBrandsArr,
+  // getGoodsFilteredByCategoryArr,
+  // getGoodsFilteredBySeasonsArr,
+  // getGoodsFilteredByActivitiesArr,
+  // getGoodsFilteredByGenderArr,
+  // getInfoFromOrderForBasket,
+  // deleteOrderFromBasket,
+  getFilteredGoods
 } = goodsSlice.actions;
 export default goodsSlice.reducer;
