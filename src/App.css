@@ -116,3 +116,14 @@
 .filter__item{
   cursor: pointer;
 }
+
+/* Card */
+/* table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;  
+}
+
+th, td {
+  background-color: rgb(192, 190, 190);
+  width: 40px;  
+} */

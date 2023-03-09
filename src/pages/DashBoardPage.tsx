@@ -9,7 +9,7 @@ export const DashBoardPage = () => {
     <>
       {/* <HeaderDashboard /> */}
 
-      <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} />
+      {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}
       {/* <Accordeon /> */}
     </>
   );

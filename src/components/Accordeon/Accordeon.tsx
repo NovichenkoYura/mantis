@@ -18,6 +18,7 @@ import {
   // getGoodsFilteredByGenderArr
 } from 'store/goodsSlice';
 import { useAppDispatch } from 'api/hooks';
+import { Box } from '@mui/system';
 
 const accordContent = [
   {
@@ -72,24 +73,33 @@ const accordContent = [
 export const Accordeon = () => {
   const dispatch = useAppDispatch();
   return (
-    <div>
+    <Box>
       {accordContent.map((item) => (
-        <Accordion key={item.title} sx={{ width: '400px' }}>
+        <Accordion key={item.title} sx={{ width: '300px' }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
-            sx={{ bgcolor: '#e0e0e0' }}>
-            <Typography>{item.title}</Typography>
+            sx={{ bgcolor: '#eeeeee' }}>
+            <Typography sx={{ fontSize: '13px', fontWeight: '700', color: '#616161' }}>
+              {item.title}
+            </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ p: 0 }}>
             <List sx={{ p: 0 }}>
               {item.list.map((i) => (
                 <ListItem
                   key={i.number}
-                  sx={{ bgcolor: '#e0e0e0' }}
+                  sx={{
+                    bgcolor: '#eeeeee',
+                    height: '24px',
+                    fontSize: '11px',
+                    fontWeight: '500',
+                    color: '#616161',
+                    borderTop: '1px solid #e0e0e0'
+                  }}
                   className="filter__item"
-                  onClick={() => dispatch(getFilteredGoods({ item, i.number }))}>
+                  onClick={() => dispatch(getFilteredGoods(i.name))}>
                   {i.name}
                 </ListItem>
               ))}
@@ -97,6 +107,6 @@ export const Accordeon = () => {
           </AccordionDetails>
         </Accordion>
       ))}
-    </div>
+    </Box>
   );
 };

@@ -25,15 +25,10 @@ const goodsSlice = createSlice({
 
   reducers: {
     getFilteredGoods(state, action) {
+      console.log(action.payload);
       console.log(action.payload.item.title);
       console.log(action.payload.item.list.number);
-      console.log(action.payload);
-      // state.goodsFilteredByBrandsArr.includes(action.payload)
-      //   ? (state.goodsFilteredByBrandsArr = state.goodsFilteredByBrandsArr.filter(
-      //       (item: any) => item !== action.payload
-      //     ))
-      //   : state.goodsFilteredByBrandsArr.push(action.payload);
-    }
+    },
     // getGoodsFilteredByBrandsArr(state, action) {
     //   state.goodsFilteredByBrandsArr.includes(action.payload)
     //     ? (state.goodsFilteredByBrandsArr = state.goodsFilteredByBrandsArr.filter(
@@ -69,16 +64,16 @@ const goodsSlice = createSlice({
     //       ))
     //     : state.goodsFilteredByGenderArr.push(action.payload);
     // },
-    // getInfoFromOrderForBasket(state, action) {
-    //   console.log(action.payload);
-    //   state.goodsInfoForBasket.push(action.payload);
-    // },
-    // deleteOrderFromBasket(state, action) {
-    //   console.log(action.payload);
-    //   state.goodsInfoForBasket = state.goodsInfoForBasket.filter(
-    //     (item: any) => item.ean !== action.payload
-    //   );
-    // }
+    getInfoFromOrderForBasket(state, action) {
+      console.log(action.payload);
+      state.goodsInfoForBasket.push(action.payload);
+    },
+    deleteOrderFromBasket(state, action) {
+      console.log(action.payload);
+      state.goodsInfoForBasket = state.goodsInfoForBasket.filter(
+        (item: any) => item.ean !== action.payload
+      );
+    }
   }
 });
 
@@ -88,8 +83,8 @@ export const {
   // getGoodsFilteredBySeasonsArr,
   // getGoodsFilteredByActivitiesArr,
   // getGoodsFilteredByGenderArr,
-  // getInfoFromOrderForBasket,
-  // deleteOrderFromBasket,
-  getFilteredGoods
+  getInfoFromOrderForBasket,
+  deleteOrderFromBasket
+  // getFilteredGoods
 } = goodsSlice.actions;
 export default goodsSlice.reducer;

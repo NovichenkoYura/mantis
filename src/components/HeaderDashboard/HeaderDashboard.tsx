@@ -23,8 +23,11 @@ interface BasketProps {
 
 export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
+  // console.log(goodsInfoForBasket);
 
-  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + Number(v.qty), 0);
+  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
+  const sumForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty * Number(v.rrp), 0);
+  console.log(sumForBadgeOfBasket);
 
   return (
     <Box sx={{ display: 'flex', flex: 1 }}>
@@ -54,7 +57,7 @@ export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
               justifyContent: 'space-between'
             }}>
             <Typography component="div" sx={{ pl: 3 }}>
-              € {<ExampleСurrency />}
+              {<ExampleСurrency />}€
             </Typography>
             <Typography component="div" sx={{ pr: 3 }} id="curencyRate">
               RRC: 40.00
@@ -77,6 +80,7 @@ export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
             sx={{ width: 76, height: 64, p: 0, bgcolor: 'transparent', color: '#616161' }}>
             <Badge badgeContent={qtyForBadgeOfBasket}>
               <ShoppingCartIcon />
+              <Box> {sumForBadgeOfBasket} €</Box>
             </Badge>
           </IconButton>
         </StyledToolbar>

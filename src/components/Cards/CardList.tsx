@@ -1,3 +1,4 @@
+import Table from '@mui/material/Table/Table';
 import { Box } from '@mui/system';
 import { useAppSelector } from 'api/hooks';
 import { useStock } from 'api/stockQuery/stockQuery';
@@ -6,20 +7,20 @@ import { number } from 'yup';
 import { CardItem } from './CardItem';
 
 export const CardList = () => {
-  const {
-    goodsFilteredByBrandsArr,
-    goodsFilteredByCategoryArr,
-    goodsFilteredBySeasonsArr,
-    goodsFilteredByGenderArr,
+  // const {
+  //   goodsFilteredByBrandsArr,
+  //   goodsFilteredByCategoryArr,
+  //   goodsFilteredBySeasonsArr,
+  //   goodsFilteredByGenderArr,
 
-    goodsFilteredByActivitiesArr
-  } = useAppSelector((state) => state.goods);
+  //   goodsFilteredByActivitiesArr
+  // } = useAppSelector((state) => state.goods);
 
-  console.log(goodsFilteredByBrandsArr);
+  // console.log(goodsFilteredByBrandsArr);
 
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
-  console.log(fetchStockInfo);
+  // console.log(fetchStockInfo);
 
   // const arr1 = fetchStockInfo.reduce((acc: any, value: any) => {
   //   const sku = value.sku;

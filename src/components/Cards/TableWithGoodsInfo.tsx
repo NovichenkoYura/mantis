@@ -18,7 +18,44 @@ export const TableWithGoodsInfo = ({
   const dispatch = useAppDispatch();
 
   return (
-    <Table aria-label="basic table" sx={{ bgcolor: '#fafafa' }}>
+    // <Table aria-label="basic table" sx={{ bgcolor: '#fafafa' }}>
+    //   <tbody>
+    <tr>
+      <td>{barcode}</td>
+      <td>{сolor}</td>
+      <td>{size}</td>
+      <td>{season}</td>
+      <td>{rrp}</td>
+      <td>{rrp_uah}</td>
+      <td>{quantity}</td>
+      <td>
+        <Input
+          sx={{ bgcolor: 'white', width: '80px', height: '20px' }}
+          type="number"
+          disableUnderline
+          onChange={(e) =>
+            dispatch(
+              getInfoFromOrderForBasket({
+                qty: +e.target.value,
+                ean: barcode,
+                сolor: сolor,
+                size: size,
+                rrp: rrp,
+                sku: sku,
+                title: title
+              })
+            )
+          }
+        />
+      </td>
+    </tr>
+    //   </tbody>
+    // </Table>
+  );
+};
+
+{
+  /* <Table aria-label="basic table" sx={{ bgcolor: '#fafafa' }}>
       <thead>
         <tr>
           <th>Barcode</th>
@@ -62,6 +99,5 @@ export const TableWithGoodsInfo = ({
           </td>
         </tr>
       </tbody>
-    </Table>
-  );
-};
+    </Table> */
+}

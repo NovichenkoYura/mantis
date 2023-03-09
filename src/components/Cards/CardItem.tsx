@@ -7,6 +7,7 @@ import { CardInfoTypes } from 'types/types';
 import { useState } from 'react';
 import { TableWithGoodsInfo } from './TableWithGoodsInfo';
 import { useStock } from 'api/stockQuery/stockQuery';
+import { Table } from '@mui/material';
 
 // type CardItemTypes = Omit<CardInfoTypes, 'ean'>;
 
@@ -143,21 +144,39 @@ export const CardItem: React.FC<CardInfoTypes> = ({
           for other info
         </Box>
       </Box>
-      {showDropdown &&
-        currentFetchStockInfo?.map((item: CardInfoTypes) => (
-          <TableWithGoodsInfo
-            key={item.ean}
-            barcode={item.ean}
-            sku={item.sku}
-            title={item.title}
-            сolor={item.color}
-            size={item.size}
-            season={item.season}
-            rrp={item.rrp}
-            rrp_uah={item.rrp_uah}
-            quantity={item.qty}
-          />
-        ))}
+
+      {showDropdown && (
+        <Table aria-label="basic table" sx={{ bgcolor: '#fafafa' }}>
+          <thead>
+            <tr>
+              <th>Barcode</th>
+              <th>Color</th>
+              <th>Size</th>
+              <th>Season</th>
+              <th>Price, €</th>
+              <th>Price, ₴</th>
+              <th>Quantity</th>
+              <th>Add to basket</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentFetchStockInfo?.map((item: CardInfoTypes) => (
+              <TableWithGoodsInfo
+                key={item.ean}
+                barcode={item.ean}
+                sku={item.sku}
+                title={item.title}
+                сolor={item.color}
+                size={item.size}
+                season={item.season}
+                rrp={item.rrp}
+                rrp_uah={item.rrp_uah}
+                quantity={item.qty}
+              />
+            ))}
+          </tbody>
+        </Table>
+      )}
     </>
   );
 };

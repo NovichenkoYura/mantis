@@ -17,7 +17,7 @@ export const Basket = (props: any) => {
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
   // console.log(goodsInfoForBasket);
 
-  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + Number(v.qty), 0);
+  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
 
   return (
     <Drawer
