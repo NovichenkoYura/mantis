@@ -27,7 +27,6 @@ export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
 
   const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
   const sumForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty * Number(v.rrp), 0);
-  console.log(sumForBadgeOfBasket);
 
   return (
     <Box sx={{ display: 'flex', flex: 1 }}>
@@ -80,7 +79,9 @@ export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
             sx={{ width: 76, height: 64, p: 0, bgcolor: 'transparent', color: '#616161' }}>
             <Badge badgeContent={qtyForBadgeOfBasket}>
               <ShoppingCartIcon />
-              <Box> {sumForBadgeOfBasket} €</Box>
+              {qtyForBadgeOfBasket !== 0 && (
+                <Box sx={{ fontSize: '14px' }}> {sumForBadgeOfBasket} €</Box>
+              )}
             </Badge>
           </IconButton>
         </StyledToolbar>

@@ -28,6 +28,43 @@ const goodsSlice = createSlice({
       console.log(action.payload);
       console.log(action.payload.item.title);
       console.log(action.payload.item.list.number);
+      switch (action.payload.item.title) {
+        case 'Brands':
+          state.goodsFilteredByBrandsArr.includes(action.payload)
+            ? (state.goodsFilteredByBrandsArr = state.goodsFilteredByBrandsArr.filter(
+                (item: any) => item !== action.payload.i.number
+              ))
+            : state.goodsFilteredByBrandsArr.push(action.payload);
+          break;
+        case 'Сategories':
+          state.goodsFilteredByCategoryArr.includes(action.payload)
+            ? (state.goodsFilteredByCategoryArr = state.goodsFilteredByCategoryArr.filter(
+                (item: any) => item !== action.payload.i.number
+              ))
+            : state.goodsFilteredByCategoryArr.push(action.payload);
+          break;
+        case 'Season':
+          state.goodsFilteredBySeasonsArr.includes(action.payload)
+            ? (state.goodsFilteredBySeasonsArr = state.goodsFilteredBySeasonsArr.filter(
+                (item: any) => item !== action.payload.i.number
+              ))
+            : state.goodsFilteredBySeasonsArr.push(action.payload);
+          break;
+        case 'Kind of activity':
+          state.goodsFilteredByActivitiesArr.includes(action.payload)
+            ? (state.goodsFilteredByActivitiesArr = state.goodsFilteredByActivitiesArr.filter(
+                (item: any) => item !== action.payload.i.number
+              ))
+            : state.goodsFilteredByActivitiesArr.push(action.payload);
+          break;
+        case 'Gender':
+          state.goodsFilteredByGenderArr.includes(action.payload)
+            ? (state.goodsFilteredByGenderArr = state.goodsFilteredByGenderArr.filter(
+                (item: any) => item !== action.payload.i.number
+              ))
+            : state.goodsFilteredByGenderArr.push(action.payload);
+          break;
+      }
     },
     // getGoodsFilteredByBrandsArr(state, action) {
     //   state.goodsFilteredByBrandsArr.includes(action.payload)

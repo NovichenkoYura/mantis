@@ -18,6 +18,7 @@ export const Basket = (props: any) => {
   // console.log(goodsInfoForBasket);
 
   const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
+  const sumForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty * Number(v.rrp), 0);
 
   return (
     <Drawer
@@ -46,8 +47,8 @@ export const Basket = (props: any) => {
             borderBottom: '1px solid #e0e0e0'
           }}>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-            In basket: <span>46E</span>
-            <span> {qtyForBadgeOfBasket}pcs</span>
+            In basket: <span>&nbsp;{sumForBadgeOfBasket}€,</span>
+            <span>&nbsp;{qtyForBadgeOfBasket}pcs</span>
           </Box>
           <StyledButtonWrapper>Buy</StyledButtonWrapper>
         </Box>

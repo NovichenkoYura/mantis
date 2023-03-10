@@ -39,7 +39,7 @@ export const BasketItem = ({ ean, color, rrp, size, qty, sku, title }) => {
         </Box>
         <Box>{rrp}</Box>
         <Box>{qty}</Box>
-        <Box>sum</Box>
+        <Box>{qty * rrp}</Box>
         <IconButton onClick={() => dispatch(deleteOrderFromBasket(ean))}>
           <HighlightOffIcon />
         </IconButton>

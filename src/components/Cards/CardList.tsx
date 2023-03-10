@@ -20,7 +20,7 @@ export const CardList = () => {
 
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
-  // console.log(fetchStockInfo);
+  console.log(fetchStockInfo);
 
   // const arr1 = fetchStockInfo.reduce((acc: any, value: any) => {
   //   const sku = value.sku;
