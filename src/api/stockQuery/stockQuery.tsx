@@ -58,8 +58,8 @@ export const useStock = () => {
   //   const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
   //   console.log(filteringQueryString);
   //   return useQuery(['stock', filteringQueryString], () => goodsQuerry(filteringQueryString), {});
-  const { goodsFilteredByBrandsArr } = useAppSelector((state) => state.goods);
-  console.log(goodsFilteredByBrandsArr);
+  // const { goodsFilteredByBrandsArr } = useAppSelector((state) => state.goods);
+  // console.log(goodsFilteredByBrandsArr);
 
-  return useQuery(['stock'], () => goodsQuerry(goodsFilteredByBrandsArr), {});
+  return useQuery(['stock'], goodsQuerry, {});
 };
