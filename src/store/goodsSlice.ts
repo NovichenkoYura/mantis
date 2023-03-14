@@ -26,41 +26,41 @@ const goodsSlice = createSlice({
   reducers: {
     getFilteredGoods(state, action) {
       console.log(action.payload);
-      console.log(action.payload.item.title);
-      console.log(action.payload.item.list.number);
-      switch (action.payload.item.title) {
+      // console.log(action.payload.item.title);
+      // console.log(action.payload.item.list.number);
+      switch (action.payload.title) {
         case 'Brands':
-          state.goodsFilteredByBrandsArr.includes(action.payload)
+          state.goodsFilteredByBrandsArr.includes(action.payload.number)
             ? (state.goodsFilteredByBrandsArr = state.goodsFilteredByBrandsArr.filter(
-                (item: any) => item !== action.payload.i.number
+                (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredByBrandsArr.push(action.payload);
+            : state.goodsFilteredByBrandsArr.push(action.payload.number);
           break;
         case 'Сategories':
-          state.goodsFilteredByCategoryArr.includes(action.payload)
+          state.goodsFilteredByCategoryArr.includes(action.payload.number)
             ? (state.goodsFilteredByCategoryArr = state.goodsFilteredByCategoryArr.filter(
-                (item: any) => item !== action.payload.i.number
+                (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredByCategoryArr.push(action.payload);
+            : state.goodsFilteredByCategoryArr.push(action.payload.numberd);
           break;
         case 'Season':
-          state.goodsFilteredBySeasonsArr.includes(action.payload)
+          state.goodsFilteredBySeasonsArr.includes(action.payload.number)
             ? (state.goodsFilteredBySeasonsArr = state.goodsFilteredBySeasonsArr.filter(
-                (item: any) => item !== action.payload.i.number
+                (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredBySeasonsArr.push(action.payload);
+            : state.goodsFilteredBySeasonsArr.push(action.payload.numberd);
           break;
         case 'Kind of activity':
-          state.goodsFilteredByActivitiesArr.includes(action.payload)
+          state.goodsFilteredByActivitiesArr.includes(action.payload.number)
             ? (state.goodsFilteredByActivitiesArr = state.goodsFilteredByActivitiesArr.filter(
-                (item: any) => item !== action.payload.i.number
+                (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredByActivitiesArr.push(action.payload);
+            : state.goodsFilteredByActivitiesArr.push(action.payload.numberd);
           break;
         case 'Gender':
           state.goodsFilteredByGenderArr.includes(action.payload)
             ? (state.goodsFilteredByGenderArr = state.goodsFilteredByGenderArr.filter(
-                (item: any) => item !== action.payload.i.number
+                (item: any) => item !== action.payload.number
               ))
             : state.goodsFilteredByGenderArr.push(action.payload);
           break;
@@ -121,7 +121,7 @@ export const {
   // getGoodsFilteredByActivitiesArr,
   // getGoodsFilteredByGenderArr,
   getInfoFromOrderForBasket,
-  deleteOrderFromBasket
-  // getFilteredGoods
+  deleteOrderFromBasket,
+  getFilteredGoods
 } = goodsSlice.actions;
 export default goodsSlice.reducer;

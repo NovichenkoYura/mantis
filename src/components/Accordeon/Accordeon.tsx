@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import * as React from 'react';
+import { StringParam, useQueryParam } from 'use-query-params';
 
 import {
   getFilteredGoods
@@ -17,7 +18,7 @@ import {
   // getGoodsFilteredByActivitiesArr,
   // getGoodsFilteredByGenderArr
 } from 'store/goodsSlice';
-import { useAppDispatch } from 'api/hooks';
+import { useAppDispatch, useAppSelector } from 'api/hooks';
 import { Box } from '@mui/system';
 
 const accordContent = [
@@ -71,7 +72,17 @@ const accordContent = [
 ];
 
 export const Accordeon = () => {
+  const {
+    goodsFilteredByBrandsArr
+    // goodsFilteredByCategoryArr
+    // goodsFilteredBySeasonsArr,
+    // goodsFilteredByGenderArr,
+
+    // goodsFilteredByActivitiesArr
+  } = useAppSelector((state) => state.goods);
+  console.log(goodsFilteredByBrandsArr);
   const dispatch = useAppDispatch();
+  const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
   return (
     <Box>
       {accordContent.map((item) => (
@@ -96,10 +107,14 @@ export const Accordeon = () => {
                     fontSize: '11px',
                     fontWeight: '500',
                     color: '#616161',
-                    borderTop: '1px solid #e0e0e0'
+                    borderTop: '1px solid #e0e0e0',
+                    pl: '40px'
                   }}
                   className="filter__item"
-                  onClick={() => dispatch(getFilteredGoods(i.name))}>
+                  onClick={
+                    // () => setFilteringQueryString(String(i.number))
+                    () => dispatch(getFilteredGoods({ title: item.title, number: i.number }))
+                  }>
                   {i.name}
                 </ListItem>
               ))}

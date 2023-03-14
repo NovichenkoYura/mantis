@@ -5,7 +5,7 @@ import { deleteOrderFromBasket } from 'store/goodsSlice';
 import { useAppDispatch } from 'api/hooks';
 
 export const BasketItem = ({ ean, color, rrp, size, qty, sku, title }) => {
-  // console.log(ean, col, size);
+  console.log(ean, color, size);
   const dispatch = useAppDispatch();
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column' }}>

@@ -11,6 +11,7 @@ import { StyledButtonWrapper } from 'components/common/Button/Button';
 import { BasketItem } from './BasketItem';
 import { useAppSelector } from 'api/hooks';
 import { title } from 'process';
+import { CardInfoTypes } from 'types/types';
 
 export const Basket = (props: any) => {
   const { closeBasket = Function.prototype, basketOpen } = props;
@@ -62,7 +63,7 @@ export const Basket = (props: any) => {
           pb: 0
           // overflow: 'hidden'
         }}>
-        {goodsInfoForBasket.map((item) => (
+        {goodsInfoForBasket?.map((item: CardInfoTypes) => (
           <BasketItem
             key={item.ean}
             ean={item.ean}
