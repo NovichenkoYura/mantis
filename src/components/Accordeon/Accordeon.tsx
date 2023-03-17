@@ -27,8 +27,8 @@ const accordContent = [
     list: [
       { name: 'Craft', number: 5075 },
       { name: 'X-bionic', number: 6430 },
-      { name: 'Oakley', number: 5127 },
-      { name: 'Dainese', number: 5120 },
+      { name: 'Oakley', number: 5120 },
+      // { name: 'Dainese', number: 5127 },
       { name: 'Bolle', number: 5077 }
     ]
   },
@@ -72,15 +72,6 @@ const accordContent = [
 ];
 
 export const Accordeon = () => {
-  const {
-    goodsFilteredByBrandsArr
-    // goodsFilteredByCategoryArr
-    // goodsFilteredBySeasonsArr,
-    // goodsFilteredByGenderArr,
-
-    // goodsFilteredByActivitiesArr
-  } = useAppSelector((state) => state.goods);
-  console.log(goodsFilteredByBrandsArr);
   const dispatch = useAppDispatch();
   const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
   return (

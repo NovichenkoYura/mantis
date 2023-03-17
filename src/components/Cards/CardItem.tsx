@@ -30,6 +30,8 @@ export const CardItem: React.FC<CardInfoTypes> = ({
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
   const currentFetchStockInfo = fetchStockInfo.filter((item: any) => item.sku === sku);
+  const brandname = brand.toLocaleLowerCase().replace(/(\.|-|\/|\\| )/g, '');
+  console.log(brandname);
   // console.log(currentFetchStockInfo);
   return (
     <>
@@ -55,7 +57,11 @@ export const CardItem: React.FC<CardInfoTypes> = ({
           {showDropdown ? <RemoveCircleOutlineIcon /> : <AddCircleOutlineIcon />}
         </IconButton>
         <Box sx={{ m: 0, p: 0 }}>
-          <img src={`https://img.mantis.com.ua/craft/${sku}/${color}/0`} alt="" height="68px" />
+          <img
+            src={`https://img.mantis.com.ua/${brandname}/${sku}/${color}/0`}
+            alt=""
+            height="68px"
+          />
         </Box>
         <Box
           sx={{

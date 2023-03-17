@@ -7,13 +7,13 @@ import { number } from 'yup';
 import { CardItem } from './CardItem';
 
 export const CardList = () => {
-  const { goodsFilteredByBrandsArr } = useAppSelector((state) => state.goods);
+  // const { goodsFilteredByBrandsArr } = useAppSelector((state) => state.goods);
 
-  console.log(goodsFilteredByBrandsArr);
+  // console.log(goodsFilteredByBrandsArr);
 
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
-  // console.log(fetchStockInfo);
+  console.log(fetchStockInfo);
 
   // const arr1 = fetchStockInfo.reduce((acc: any, value: any) => {
   //   const sku = value.sku;

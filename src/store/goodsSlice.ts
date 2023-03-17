@@ -25,7 +25,7 @@ const goodsSlice = createSlice({
 
   reducers: {
     getFilteredGoods(state, action) {
-      console.log(action.payload);
+      // console.log(action.payload.title);
       // console.log(action.payload.item.title);
       // console.log(action.payload.item.list.number);
       switch (action.payload.title) {
@@ -41,28 +41,31 @@ const goodsSlice = createSlice({
             ? (state.goodsFilteredByCategoryArr = state.goodsFilteredByCategoryArr.filter(
                 (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredByCategoryArr.push(action.payload.numberd);
+            : state.goodsFilteredByCategoryArr.push(action.payload.number);
           break;
         case 'Season':
           state.goodsFilteredBySeasonsArr.includes(action.payload.number)
             ? (state.goodsFilteredBySeasonsArr = state.goodsFilteredBySeasonsArr.filter(
                 (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredBySeasonsArr.push(action.payload.numberd);
+            : state.goodsFilteredBySeasonsArr.push(action.payload.number);
           break;
         case 'Kind of activity':
           state.goodsFilteredByActivitiesArr.includes(action.payload.number)
             ? (state.goodsFilteredByActivitiesArr = state.goodsFilteredByActivitiesArr.filter(
                 (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredByActivitiesArr.push(action.payload.numberd);
+            : state.goodsFilteredByActivitiesArr.push(action.payload.number);
           break;
         case 'Gender':
-          state.goodsFilteredByGenderArr.includes(action.payload)
+          state.goodsFilteredByGenderArr.includes(action.payload.number)
             ? (state.goodsFilteredByGenderArr = state.goodsFilteredByGenderArr.filter(
                 (item: any) => item !== action.payload.number
               ))
-            : state.goodsFilteredByGenderArr.push(action.payload);
+            : state.goodsFilteredByGenderArr.push(action.payload.number);
+          break;
+
+        default:
           break;
       }
     },
