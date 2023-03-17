@@ -45,7 +45,7 @@ const accordContent = [
   {
     title: 'Season',
     list: [
-      { name: 'Winter 22', number: 20483 },
+      { name: 'Winter 22', number: 20843 },
       { name: 'Summer 22', number: 20620 },
       { name: 'Winter 21', number: 20070 },
       { name: 'Summer 21', number: 19928 }

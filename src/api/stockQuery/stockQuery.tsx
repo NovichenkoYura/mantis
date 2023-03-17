@@ -14,13 +14,13 @@ export const goodsQuerry = async (
   // goodsFilteredByGenderArr: any,
   // goodsFilteredByActivitiesArr: any
 ) => {
-  // console.log(
-  //   goodsFilteredByBrandsArr,
-  //   goodsFilteredByCategoryArr,
-  //   goodsFilteredBySeasonsArr
-  //   // goodsFilteredByGenderArr,
-  //   // goodsFilteredByActivitiesArr
-  // );
+  console.log(
+    goodsFilteredByBrandsArr,
+    goodsFilteredByCategoryArr,
+    goodsFilteredBySeasonsArr
+    // goodsFilteredByGenderArr,
+    // goodsFilteredByActivitiesArr
+  );
   try {
     return await (
       await fetch('https://api.mantis.com.ua/report/stock', {
@@ -57,13 +57,13 @@ export const useStock = () => {
     // goodsFilteredByGenderArr,
     // goodsFilteredByActivitiesArr
   } = useAppSelector((state) => state.goods);
-  // console.log(
-  //   goodsFilteredByBrandsArr,
-  //   goodsFilteredByCategoryArr,
-  //   goodsFilteredBySeasonsArr
-  //   // goodsFilteredByGenderArr,
-  //   // goodsFilteredByActivitiesArr
-  // );
+  console.log(
+    goodsFilteredByBrandsArr,
+    goodsFilteredByCategoryArr,
+    goodsFilteredBySeasonsArr
+    // goodsFilteredByGenderArr,
+    // goodsFilteredByActivitiesArr
+  );
 
   // return useQuery(['stock'], goodsQuerry, {});
   return useQuery(

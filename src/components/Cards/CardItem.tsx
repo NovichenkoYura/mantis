@@ -33,6 +33,10 @@ export const CardItem: React.FC<CardInfoTypes> = ({
   const brandname = brand.toLocaleLowerCase().replace(/(\.|-|\/|\\| )/g, '');
   console.log(brandname);
   // console.log(currentFetchStockInfo);
+  const model = sku.toLocaleLowerCase().replaceAll(' ', '-');
+  console.log(model);
+  const colorname = color.toLocaleLowerCase();
+
   return (
     <>
       <Box
@@ -58,7 +62,7 @@ export const CardItem: React.FC<CardInfoTypes> = ({
         </IconButton>
         <Box sx={{ m: 0, p: 0 }}>
           <img
-            src={`https://img.mantis.com.ua/${brandname}/${sku}/${color}/0`}
+            src={`https://img.mantis.com.ua/${brandname}/${model}/${colorname}/0`}
             alt=""
             height="68px"
           />
