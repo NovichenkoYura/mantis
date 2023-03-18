@@ -1,7 +1,7 @@
 import Table from '@mui/material/Table/Table';
 import { Box } from '@mui/system';
 import { useAppSelector } from 'api/hooks';
-import { useStock } from 'api/stockQuery/stockQuery';
+import { useStock } from 'api/stockQuery/useStock';
 import { CardInfoTypes } from 'types/types';
 import { number } from 'yup';
 import { CardItem } from './CardItem';

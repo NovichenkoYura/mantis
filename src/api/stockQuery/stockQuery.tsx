@@ -8,19 +8,18 @@ import { StringParam, useQueryParam } from 'use-query-params';
 // const goodsFilteredByGenderArr = [5036];
 
 export const goodsQuerry = async (
-  goodsFilteredByBrandsArr: any,
-  goodsFilteredByCategoryArr: any,
-  goodsFilteredBySeasonsArr: any
+  params: any
   // goodsFilteredByGenderArr: any,
   // goodsFilteredByActivitiesArr: any
 ) => {
   console.log(
-    goodsFilteredByBrandsArr,
-    goodsFilteredByCategoryArr,
-    goodsFilteredBySeasonsArr
+    'request',
+    params
     // goodsFilteredByGenderArr,
     // goodsFilteredByActivitiesArr
   );
+  const { goodsFilteredByBrandsArr, goodsFilteredByCategoryArr, goodsFilteredBySeasonsArr } =
+    params;
   try {
     return await (
       await fetch('https://api.mantis.com.ua/report/stock', {
@@ -32,9 +31,12 @@ export const goodsQuerry = async (
         },
         body: JSON.stringify({
           filter: {
-            24: goodsFilteredByBrandsArr,
-            20: goodsFilteredByCategoryArr,
-            27: goodsFilteredBySeasonsArr
+            24: [5075],
+            20: [11470]
+            // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : undefined
+            // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : undefined,
+            // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined
+            // 27: goodsFilteredBySeasonsArr
             // 31: goodsFilteredByActivitiesArr,
             // 21: goodsFilteredByGenderArr
           },
@@ -47,37 +49,6 @@ export const goodsQuerry = async (
   } catch (error) {
     return Promise.reject(error);
   }
-};
-
-export const useStock = () => {
-  const {
-    goodsFilteredByBrandsArr,
-    goodsFilteredByCategoryArr,
-    goodsFilteredBySeasonsArr
-    // goodsFilteredByGenderArr,
-    // goodsFilteredByActivitiesArr
-  } = useAppSelector((state) => state.goods);
-  console.log(
-    goodsFilteredByBrandsArr,
-    goodsFilteredByCategoryArr,
-    goodsFilteredBySeasonsArr
-    // goodsFilteredByGenderArr,
-    // goodsFilteredByActivitiesArr
-  );
-
-  // return useQuery(['stock'], goodsQuerry, {});
-  return useQuery(
-    ['stock'],
-    () =>
-      goodsQuerry(
-        goodsFilteredByBrandsArr,
-        goodsFilteredByCategoryArr,
-        goodsFilteredBySeasonsArr
-        // goodsFilteredByGenderArr,
-        // goodsFilteredByActivitiesArr
-      ),
-    {}
-  );
 };
 
 // export const goodsQuerry = async (goodsFilteredByBrandsArr: any) => {

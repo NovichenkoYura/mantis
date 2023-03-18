@@ -6,8 +6,8 @@ import Divider from '@mui/material/Divider';
 import { CardInfoTypes } from 'types/types';
 import { useState } from 'react';
 import { TableWithGoodsInfo } from './TableWithGoodsInfo';
-import { useStock } from 'api/stockQuery/stockQuery';
 import { Table } from '@mui/material';
+import { useStock } from 'api/stockQuery/useStock';
 
 // type CardItemTypes = Omit<CardInfoTypes, 'ean'>;
 
