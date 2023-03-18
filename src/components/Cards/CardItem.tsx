@@ -30,11 +30,9 @@ export const CardItem: React.FC<CardInfoTypes> = ({
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
   const currentFetchStockInfo = fetchStockInfo.filter((item: any) => item.sku === sku);
-  const brandname = brand.toLocaleLowerCase().replace(/(\.|-|\/|\\| )/g, '');
-  console.log(brandname);
   // console.log(currentFetchStockInfo);
+  const brandname = brand.toLocaleLowerCase().replace(/(\.|-|\/|\\| )/g, '');
   const model = sku.toLocaleLowerCase().replaceAll(' ', '-');
-  console.log(model);
   const colorname = color.toLocaleLowerCase();
 
   return (
