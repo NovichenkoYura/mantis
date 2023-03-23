@@ -3,13 +3,38 @@ import { useQuery } from 'react-query';
 import { goodsQuerry } from './stockQuery';
 
 export const useStock = () => {
+  // const {
+  //   ...params
+  //   // goodsFilteredByGenderArr,
+  //   // goodsFilteredByActivitiesArr
+  // } = useAppSelector((state) => state.goods);
   const {
-    ...params
-    // goodsFilteredByGenderArr,
-    // goodsFilteredByActivitiesArr
+    goodsFilteredByBrandsArr,
+    goodsFilteredByCategoryArr,
+    goodsFilteredBySeasonsArr,
+    goodsFilteredByActivitiesArr,
+    goodsFilteredByGenderArr
   } = useAppSelector((state) => state.goods);
-  console.log('hook', params);
+
+  // console.log('hook', goodsFilteredByBrandsArr);
 
   // return useQuery(['stock'], goodsQuerry, {});
-  return useQuery(['stock', params], () => goodsQuerry(params));
+  return useQuery(
+    [
+      'stock',
+      goodsFilteredByBrandsArr.length
+      // goodsFilteredByCategoryArr.length,
+      // goodsFilteredBySeasonsArr.length,
+      // goodsFilteredByActivitiesArr.length,
+      // goodsFilteredByGenderArr.length
+    ],
+    () =>
+      goodsQuerry(
+        goodsFilteredByBrandsArr
+        // goodsFilteredByCategoryArr,
+        // goodsFilteredBySeasonsArr,
+        // goodsFilteredByActivitiesArr,
+        // goodsFilteredByGenderArr
+      )
+  );
 };

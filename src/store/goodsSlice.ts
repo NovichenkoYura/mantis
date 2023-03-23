@@ -25,9 +25,6 @@ const goodsSlice = createSlice({
 
   reducers: {
     getFilteredGoods(state, action) {
-      // console.log(action.payload.title);
-      // console.log(action.payload.item.title);
-      // console.log(action.payload.item.list.number);
       switch (action.payload.title) {
         case 'Brands':
           state.goodsFilteredByBrandsArr.includes(action.payload.number)

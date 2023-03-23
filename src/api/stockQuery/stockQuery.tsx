@@ -8,18 +8,21 @@ import { StringParam, useQueryParam } from 'use-query-params';
 // const goodsFilteredByGenderArr = [5036];
 
 export const goodsQuerry = async (
-  params: any
-  // goodsFilteredByGenderArr: any,
-  // goodsFilteredByActivitiesArr: any
+  goodsFilteredByBrandsArr: any
+  // goodsFilteredByCategoryArr: any,
+  // goodsFilteredBySeasonsArr: any,
+  // goodsFilteredByActivitiesArr: any,
+  // goodsFilteredByGenderArr: any
 ) => {
-  console.log(
-    'request',
-    params
-    // goodsFilteredByGenderArr,
-    // goodsFilteredByActivitiesArr
-  );
-  const { goodsFilteredByBrandsArr, goodsFilteredByCategoryArr, goodsFilteredBySeasonsArr } =
-    params;
+  // console.log(
+  //   'request',
+  //   goodsFilteredByBrandsArr
+  //   // goodsFilteredByCategoryArr,
+  //   // goodsFilteredBySeasonsArr,
+  //   // goodsFilteredByActivitiesArr,
+  //   // goodsFilteredByGenderArr
+  // );
+
   try {
     return await (
       await fetch('https://api.mantis.com.ua/report/stock', {
@@ -35,10 +38,9 @@ export const goodsQuerry = async (
             20: [11470]
             // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : undefined
             // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : undefined,
-            // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined
-            // 27: goodsFilteredBySeasonsArr
-            // 31: goodsFilteredByActivitiesArr,
-            // 21: goodsFilteredByGenderArr
+            // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined,
+            // 31: goodsFilteredByActivitiesArr.length ? goodsFilteredByActivitiesArr : undefined,
+            // 21: goodsFilteredByGenderArr.length ? goodsFilteredByGenderArr : undefined
           },
           // sku: ['1905319']
           // query: 'Resolve',
@@ -51,20 +53,19 @@ export const goodsQuerry = async (
   }
 };
 
-// export const goodsQuerry = async (goodsFilteredByBrandsArr: any) => {
-//   // const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
-//   // console.log(filteringQueryString);
-//   // const {
-//   //   goodsFilteredByBrandsArr
-//   //   // goodsFilteredByCategoryArr
-//   //   // goodsFilteredBySeasonsArr,
-//   //   // goodsFilteredByGenderArr,
-
-//   //   // goodsFilteredByActivitiesArr
-//   // } = useAppSelector((state) => state.goods);
-//   // console.log(goodsFilteredByBrandsArr);
-//   // const newarr = arr.push(filteringQueryString);
-//   console.log(goodsFilteredByBrandsArr);
+// export const goodsQuerry = async (
+//   params: any
+//   // goodsFilteredByGenderArr: any,
+//   // goodsFilteredByActivitiesArr: any
+// ) => {
+//   console.log(
+//     'request',
+//     params
+//     // goodsFilteredByGenderArr,
+//     // goodsFilteredByActivitiesArr
+//   );
+//   const { goodsFilteredByBrandsArr, goodsFilteredByCategoryArr, goodsFilteredBySeasonsArr } =
+//     params;
 //   try {
 //     return await (
 //       await fetch('https://api.mantis.com.ua/report/stock', {
@@ -76,16 +77,14 @@ export const goodsQuerry = async (
 //         },
 //         body: JSON.stringify({
 //           filter: {
-//             24: goodsFilteredByBrandsArr_1,
-//             20: goodsFilteredByCategoryArr_1
-//             // 27: goodsFilteredBySeasonsArr,
+//             24: [5075],
+//             20: [11470]
+//             // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : undefined,
+//             // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : undefined,
+//             // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined
+//             // 27: goodsFilteredBySeasonsArr
 //             // 31: goodsFilteredByActivitiesArr,
 //             // 21: goodsFilteredByGenderArr
-//             // 24: [5075] //Craft
-//             // 24: [6430] // X-Bionic
-//             // 24: [5127]   Oakley
-//             // 24: [5120]   Dainese
-//             // 24: [5077]   Bolle
 //           },
 //           // sku: ['1905319']
 //           // query: 'Resolve',
@@ -96,13 +95,4 @@ export const goodsQuerry = async (
 //   } catch (error) {
 //     return Promise.reject(error);
 //   }
-// };
-// export const useStock = () => {
-//   //   const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
-//   //   console.log(filteringQueryString);
-//   //   return useQuery(['stock', filteringQueryString], () => goodsQuerry(filteringQueryString), {});
-//   const { goodsFilteredByBrandsArr } = useAppSelector((state) => state.goods);
-//   console.log(goodsFilteredByBrandsArr);
-
-//   return useQuery(['stock'], () => goodsQuerry(goodsFilteredByBrandsArr), {});
 // };

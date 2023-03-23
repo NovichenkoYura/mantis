@@ -9,8 +9,6 @@ import { TableWithGoodsInfo } from './TableWithGoodsInfo';
 import { Table } from '@mui/material';
 import { useStock } from 'api/stockQuery/useStock';
 
-// type CardItemTypes = Omit<CardInfoTypes, 'ean'>;
-
 export const CardItem: React.FC<CardInfoTypes> = ({
   sku,
   title,
@@ -29,8 +27,7 @@ export const CardItem: React.FC<CardInfoTypes> = ({
   const [showDropdown, setShowDropdown] = useState(false);
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
-  const currentFetchStockInfo = fetchStockInfo.filter((item: any) => item.sku === sku);
-  // console.log(currentFetchStockInfo);
+  const currentFetchStockInfo = fetchStockInfo.filter((item: CardInfoTypes) => item.sku === sku);
   const brandname = brand.toLocaleLowerCase().replace(/(\.|-|\/|\\| )/g, '');
   const model = sku.toLocaleLowerCase().replaceAll(' ', '-');
   const colorname = color.toLocaleLowerCase();
@@ -44,7 +41,7 @@ export const CardItem: React.FC<CardInfoTypes> = ({
           flexDirection: 'row',
           flex: 1,
           height: '150px',
-          borderBottom: '2px solid #e0e0e0'
+          borderBottom: `${showDropdown ? '1px solid #e0e0e0' : '2px solid #e0e0e0'}`
         }}>
         <IconButton
           onClick={() => setShowDropdown(!showDropdown)}
@@ -73,8 +70,6 @@ export const CardItem: React.FC<CardInfoTypes> = ({
             textAlign: 'left',
             fontSize: 14,
             ml: '8px',
-            // width: '200px',
-            // backgroundColor: 'blue',
             p: 0
           }}>
           <Box sx={{ width: '200px' }}>{sku}</Box>
@@ -88,7 +83,6 @@ export const CardItem: React.FC<CardInfoTypes> = ({
             flexDirection: 'column',
             justifyContent: 'center',
             textAlign: 'center'
-            // backgroundColor: 'greenyellow'
           }}>
           {brand}
         </Box>
@@ -100,7 +94,6 @@ export const CardItem: React.FC<CardInfoTypes> = ({
             flexDirection: 'column',
             justifyContent: 'center',
             textAlign: 'center'
-            // backgroundColor: 'blue'
           }}>
           {category}
         </Box>
@@ -112,7 +105,6 @@ export const CardItem: React.FC<CardInfoTypes> = ({
             flexDirection: 'column',
             justifyContent: 'center',
             textAlign: 'center'
-            // backgroundColor: 'greenyellow'
           }}>
           {activity}
         </Box>
@@ -124,22 +116,10 @@ export const CardItem: React.FC<CardInfoTypes> = ({
             flexDirection: 'column',
             justifyContent: 'center',
             textAlign: 'center'
-            // backgroundColor: 'blue'
           }}>
           {gender}
         </Box>
-        <Box
-          sx={{
-            width: '30px',
-            fontSize: 12,
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            textAlign: 'center'
-            // backgroundColor: 'greenyellow'
-          }}>
-          {qty}
-        </Box>
+
         <Box
           sx={{
             display: 'flex',
@@ -154,7 +134,9 @@ export const CardItem: React.FC<CardInfoTypes> = ({
       </Box>
 
       {showDropdown && (
-        <Table aria-label="basic table" sx={{ bgcolor: '#fafafa' }}>
+        <Table
+          aria-label="basic table"
+          sx={{ bgcolor: '#fafafa', borderBottom: '2px solid #e0e0e0' }}>
           <thead>
             <tr>
               <th>Barcode</th>
