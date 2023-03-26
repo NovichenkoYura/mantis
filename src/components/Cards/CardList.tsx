@@ -17,7 +17,7 @@ export const CardList = () => {
 
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
-  console.log(fetchStockInfo);
+  // console.log(fetchStockInfo);
 
   const filteredByUniqSku: CardInfoTypes[] = [];
 
@@ -29,6 +29,14 @@ export const CardList = () => {
       filteredByUniqSku.push(item);
     }
   });
+
+  const filteredByUniqSkuSearched = filteredByUniqSku?.filter((card: CardInfoTypes) => {
+    return (
+      card.title.toLowerCase().includes(searchedInfo.toLowerCase()) ||
+      card.sku.toLowerCase().includes(searchedInfo.toLowerCase())
+    );
+  });
+  console.log(filteredByUniqSkuSearched);
 
   return (
     <>
@@ -57,7 +65,7 @@ export const CardList = () => {
               />
             </Box>
           </SearchField>
-          {filteredByUniqSku?.map((item: CardInfoTypes) => (
+          {filteredByUniqSkuSearched?.map((item: CardInfoTypes) => (
             <CardItem
               key={item.ean}
               sku={item.sku}

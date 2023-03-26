@@ -102,9 +102,8 @@ export const Accordeon = () => {
                     pl: '40px'
                   }}
                   className="filter__item"
-                  onClick={
-                    // () => setFilteringQueryString(String(i.number))
-                    () => dispatch(getFilteredGoods({ title: item.title, number: i.number }))
+                  onClick={() =>
+                    dispatch(getFilteredGoods({ title: item.title, number: i.number }))
                   }>
                   {i.name}
                 </ListItem>
