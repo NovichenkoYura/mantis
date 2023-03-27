@@ -54,10 +54,10 @@ const accordContent = [
   {
     title: 'Kind of activity',
     list: [
-      { name: 'Bike', number: 455 },
-      { name: 'Run', number: 456 },
-      { name: 'Winter', number: 459 },
-      { name: 'Fitness', number: 461 }
+      { name: 'Bike', number: 11456 },
+      { name: 'Run', number: 11455 },
+      { name: 'Winter', number: 11459 },
+      { name: 'Fitness', number: 11461 }
     ]
   },
   {

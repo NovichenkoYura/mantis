@@ -32,37 +32,82 @@ export const goodsQuerry = async (
 
   console.log(filter);
 
-  try {
-    return await (
-      await fetch('https://api.mantis.com.ua/report/stock', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          accept: 'application/json',
-          'mantis-api-key': '6ea32a8a2373eb3b46dc8884f5c83bfd799caec1'
-        },
-        body: JSON.stringify({
-          filter: {
-            ...filter,
-            // 24: goodsFilteredByBrandsArr,
-            20: [11470]
-            // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : [],
-            // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : []
-            // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined,
-            // 31: goodsFilteredByActivitiesArr.length ? goodsFilteredByActivitiesArr : undefined,
-            // 21: goodsFilteredByGenderArr.length ? goodsFilteredByGenderArr : undefined
+  const sendRequest = async () => {
+    console.log('1');
+
+    try {
+      return await (
+        await fetch('https://api.mantis.com.ua/report/stock', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+            'mantis-api-key': '6ea32a8a2373eb3b46dc8884f5c83bfd799caec1'
           },
-          // sku: ['1905319']
-          // query: 'Resolve',
-          show_zero: false,
-          limit: 10,
-          offset: 50
+          body: JSON.stringify({
+            filter: {
+              ...filter
+              // 24: goodsFilteredByBrandsArr,
+              // 20: [11470]
+              // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : [],
+              // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : []
+              // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined,
+              // 31: goodsFilteredByActivitiesArr.length ? goodsFilteredByActivitiesArr : undefined,
+              // 21: goodsFilteredByGenderArr.length ? goodsFilteredByGenderArr : undefined
+            },
+            // sku: ['1905319']
+            // query: 'Resolve',
+            show_zero: false,
+            limit: 10,
+            offset: 50
+          })
         })
-      })
-    ).json();
-  } catch (error) {
-    return Promise.reject(error);
-  }
+      ).json();
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  };
+
+  return goodsFilteredByBrandsArr.length ||
+    goodsFilteredByCategoryArr.length ||
+    goodsFilteredBySeasonsArr.length ||
+    goodsFilteredByActivitiesArr.length ||
+    goodsFilteredByGenderArr.length
+    ? sendRequest()
+    : null;
+  // sendRequest();
+
+  // try {
+  //   return await (
+  //     await fetch('https://api.mantis.com.ua/report/stock', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         accept: 'application/json',
+  //         'mantis-api-key': '6ea32a8a2373eb3b46dc8884f5c83bfd799caec1'
+  //       },
+  //       body: JSON.stringify({
+  //         filter: {
+  //           ...filter,
+  //           // 24: goodsFilteredByBrandsArr,
+  //           20: [11470]
+  //           // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : [],
+  //           // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : []
+  //           // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined,
+  //           // 31: goodsFilteredByActivitiesArr.length ? goodsFilteredByActivitiesArr : undefined,
+  //           // 21: goodsFilteredByGenderArr.length ? goodsFilteredByGenderArr : undefined
+  //         },
+  //         // sku: ['1905319']
+  //         // query: 'Resolve',
+  //         show_zero: false,
+  //         limit: 10,
+  //         offset: 50
+  //       })
+  //     })
+  //   ).json();
+  // } catch (error) {
+  //   return Promise.reject(error);
+  // }
 };
 
 // export const goodsQuerry = async (
