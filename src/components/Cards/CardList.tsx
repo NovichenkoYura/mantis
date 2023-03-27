@@ -10,6 +10,7 @@ import { Box, IconButton, Input, Typography } from '@mui/material';
 import { SearchOutlined } from '@mui/icons-material';
 import { useState } from 'react';
 import React from 'react';
+import { cardInfoKeys } from 'constans/filterKeyByType';
 
 export const CardList = () => {
   const [searchedInfo, setSearchedInfo] = useState('');
@@ -29,6 +30,13 @@ export const CardList = () => {
       filteredByUniqSku.push(item);
     }
   });
+
+  // console.log(
+  //   filteredByUniqSku?.filter((card: CardInfoTypes) =>
+  //     // @ts-ignore
+  //     cardInfoKeys.filter((key) => card[key].toLowerCase().includes(searchedInfo.toLowerCase()))
+  //   )
+  // );
 
   const filteredByUniqSkuSearched = filteredByUniqSku?.filter((card: CardInfoTypes) => {
     return (

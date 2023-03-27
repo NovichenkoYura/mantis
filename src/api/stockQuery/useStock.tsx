@@ -19,22 +19,25 @@ export const useStock = () => {
   // console.log('hook', goodsFilteredByBrandsArr);
 
   // return useQuery(['stock'], goodsQuerry, {});
-  return useQuery(
-    [
-      'stock',
-      goodsFilteredByBrandsArr.length
-      // goodsFilteredByCategoryArr.length,
-      // goodsFilteredBySeasonsArr.length,
-      // goodsFilteredByActivitiesArr.length,
-      // goodsFilteredByGenderArr.length
-    ],
-    () =>
-      goodsQuerry(
-        goodsFilteredByBrandsArr
-        // goodsFilteredByCategoryArr,
-        // goodsFilteredBySeasonsArr,
-        // goodsFilteredByActivitiesArr,
-        // goodsFilteredByGenderArr
-      )
+  return (
+    // goodsFilteredByBrandsArr.length &&
+    useQuery(
+      [
+        'stock',
+        goodsFilteredByBrandsArr.length,
+        goodsFilteredByCategoryArr.length,
+        goodsFilteredBySeasonsArr.length,
+        goodsFilteredByActivitiesArr.length,
+        goodsFilteredByGenderArr.length
+      ],
+      () =>
+        goodsQuerry(
+          goodsFilteredByBrandsArr,
+          goodsFilteredByCategoryArr,
+          goodsFilteredBySeasonsArr,
+          goodsFilteredByActivitiesArr,
+          goodsFilteredByGenderArr
+        )
+    )
   );
 };

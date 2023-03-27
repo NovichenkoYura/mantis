@@ -8,20 +8,29 @@ import { StringParam, useQueryParam } from 'use-query-params';
 // const goodsFilteredByGenderArr = [5036];
 
 export const goodsQuerry = async (
-  goodsFilteredByBrandsArr: any
-  // goodsFilteredByCategoryArr: any,
-  // goodsFilteredBySeasonsArr: any,
-  // goodsFilteredByActivitiesArr: any,
-  // goodsFilteredByGenderArr: any
+  goodsFilteredByBrandsArr: any,
+  goodsFilteredByCategoryArr: any,
+  goodsFilteredBySeasonsArr: any,
+  goodsFilteredByActivitiesArr: any,
+  goodsFilteredByGenderArr: any
 ) => {
-  // console.log(
-  //   'request',
-  //   goodsFilteredByBrandsArr
-  //   // goodsFilteredByCategoryArr,
-  //   // goodsFilteredBySeasonsArr,
-  //   // goodsFilteredByActivitiesArr,
-  //   // goodsFilteredByGenderArr
-  // );
+  console.log(
+    'request',
+    goodsFilteredByBrandsArr,
+    goodsFilteredByCategoryArr,
+    goodsFilteredBySeasonsArr,
+    goodsFilteredByActivitiesArr,
+    goodsFilteredByGenderArr
+  );
+
+  const filter = {} as any;
+  if (goodsFilteredByBrandsArr.length) filter[24] = goodsFilteredByBrandsArr;
+  if (goodsFilteredByCategoryArr.length) filter[20] = goodsFilteredByCategoryArr;
+  if (goodsFilteredBySeasonsArr.length) filter[27] = goodsFilteredBySeasonsArr;
+  if (goodsFilteredByActivitiesArr.length) filter[31] = goodsFilteredByActivitiesArr;
+  if (goodsFilteredByGenderArr.length) filter[21] = goodsFilteredByGenderArr;
+
+  console.log(filter);
 
   try {
     return await (
@@ -34,17 +43,20 @@ export const goodsQuerry = async (
         },
         body: JSON.stringify({
           filter: {
-            24: [5075],
+            ...filter,
+            // 24: goodsFilteredByBrandsArr,
             20: [11470]
-            // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : undefined
-            // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : undefined,
+            // 24: goodsFilteredByBrandsArr.length ? goodsFilteredByBrandsArr : [],
+            // 20: goodsFilteredByCategoryArr.length ? goodsFilteredByCategoryArr : []
             // 27: goodsFilteredBySeasonsArr.length ? goodsFilteredBySeasonsArr : undefined,
             // 31: goodsFilteredByActivitiesArr.length ? goodsFilteredByActivitiesArr : undefined,
             // 21: goodsFilteredByGenderArr.length ? goodsFilteredByGenderArr : undefined
           },
           // sku: ['1905319']
           // query: 'Resolve',
-          show_zero: false
+          show_zero: false,
+          limit: 10,
+          offset: 50
         })
       })
     ).json();
