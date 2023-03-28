@@ -10,14 +10,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import * as React from 'react';
 import { StringParam, useQueryParam } from 'use-query-params';
 
-import {
-  getFilteredGoods
-  // getGoodsFilteredByBrandsArr,
-  // getGoodsFilteredByCategoryArr,
-  // getGoodsFilteredBySeasonsArr,
-  // getGoodsFilteredByActivitiesArr,
-  // getGoodsFilteredByGenderArr
-} from 'store/goodsSlice';
+import { getFilteredGoods } from 'store/goodsSlice';
 import { useAppDispatch, useAppSelector } from 'api/hooks';
 import { Box } from '@mui/system';
 
@@ -63,9 +56,9 @@ const accordContent = [
   {
     title: 'Gender',
     list: [
-      { name: 'Man', number: 5035 },
-      { name: 'Woman', number: 5036 },
-      { name: 'Unisex', number: 5037 },
+      { name: 'Man', number: 5036 },
+      { name: 'Woman', number: 5037 },
+      { name: 'Unisex', number: 5035 },
       { name: 'Kids', number: 5048 }
     ]
   }
@@ -73,7 +66,7 @@ const accordContent = [
 
 export const Accordeon = () => {
   const dispatch = useAppDispatch();
-  const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
+  // const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
   return (
     <Box>
       {accordContent.map((item) => (

@@ -2,12 +2,12 @@ import { Box } from '@mui/system';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import IconButton from '@mui/material/IconButton';
-import Divider from '@mui/material/Divider';
 import { CardInfoTypes } from 'types/types';
 import { useState } from 'react';
 import { TableWithGoodsInfo } from './TableWithGoodsInfo';
 import { Table } from '@mui/material';
 import { useStock } from 'api/stockQuery/useStock';
+export type omittedForItemTable = Omit<CardInfoTypes, 'category' | 'activity' | 'gender'>;
 
 export const CardItem: React.FC<CardInfoTypes> = ({
   sku,
@@ -16,18 +16,14 @@ export const CardItem: React.FC<CardInfoTypes> = ({
   category,
   activity,
   gender,
-  qty,
-  color,
-  ean,
-  size,
-  season,
-  rrp,
-  rrp_uah
+  color
 }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const fetchStock = useStock();
   const fetchStockInfo = fetchStock.data && fetchStock.data.data;
-  const currentFetchStockInfo = fetchStockInfo.filter((item: CardInfoTypes) => item.sku === sku);
+  const currentFetchStockInfo = fetchStockInfo.filter(
+    (item: omittedForItemTable) => item.sku === sku
+  );
   const brandname = brand.toLocaleLowerCase().replace(/(\.|-|\/|\\| )/g, '');
   const model = sku.toLocaleLowerCase().replaceAll(' ', '-');
   const colorname = color.toLocaleLowerCase();
@@ -150,18 +146,19 @@ export const CardItem: React.FC<CardInfoTypes> = ({
             </tr>
           </thead>
           <tbody>
-            {currentFetchStockInfo?.map((item: CardInfoTypes) => (
+            {currentFetchStockInfo?.map((item: omittedForItemTable) => (
               <TableWithGoodsInfo
                 key={item.ean}
-                barcode={item.ean}
+                ean={item.ean}
                 sku={item.sku}
                 title={item.title}
-                сolor={item.color}
+                color={item.color}
                 size={item.size}
                 season={item.season}
                 rrp={item.rrp}
                 rrp_uah={item.rrp_uah}
-                quantity={item.qty}
+                qty={item.qty}
+                brand={item.brand}
               />
             ))}
           </tbody>

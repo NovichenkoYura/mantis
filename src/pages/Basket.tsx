@@ -5,21 +5,22 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import ReadMoreSharpIcon from '@mui/icons-material/ReadMoreSharp';
-import { alpha } from '@mui/material';
 import { useState } from 'react';
 import { StyledButtonWrapper } from 'components/common/Button/Button';
 import { BasketItem } from './BasketItem';
 import { useAppSelector } from 'api/hooks';
-import { title } from 'process';
 import { CardInfoTypes } from 'types/types';
+import { BasketProps } from '../components/HeaderDashboard/HeaderDashboard';
 
 export const Basket = (props: any) => {
   const { closeBasket = Function.prototype, basketOpen } = props;
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
-  // console.log(goodsInfoForBasket);
-
-  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
-  const sumForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty * Number(v.rrp), 0);
+  console.log(goodsInfoForBasket);
+  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v: BasketProps) => a + v.qty, 0);
+  const sumForBadgeOfBasket = goodsInfoForBasket.reduce(
+    (a, v: BasketProps) => a + v.qty * Number(v.rrp),
+    0
+  );
 
   return (
     <Drawer
@@ -61,7 +62,6 @@ export const Basket = (props: any) => {
           height: '100%',
           pt: 0.5,
           pb: 0
-          // overflow: 'hidden'
         }}>
         {goodsInfoForBasket?.map((item: CardInfoTypes) => (
           <BasketItem
@@ -73,6 +73,7 @@ export const Basket = (props: any) => {
             qty={item.qty}
             sku={item.sku}
             title={item.title}
+            brand={item.brand}
           />
         ))}
       </List>

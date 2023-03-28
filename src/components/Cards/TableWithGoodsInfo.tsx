@@ -3,17 +3,19 @@ import Table from '@mui/material/Table';
 import { color } from '@mui/system';
 import { useAppDispatch } from 'api/hooks';
 import { getInfoFromOrderForBasket } from 'store/goodsSlice';
+import { omittedForItemTable } from './CardItem';
 
-export const TableWithGoodsInfo = ({
-  barcode,
+export const TableWithGoodsInfo: React.FC<omittedForItemTable> = ({
+  ean,
   sku,
   title,
-  сolor,
+  color,
   size,
   season,
   rrp,
   rrp_uah,
-  quantity
+  qty,
+  brand
 }) => {
   const dispatch = useAppDispatch();
 
@@ -21,13 +23,13 @@ export const TableWithGoodsInfo = ({
     // <Table aria-label="basic table" sx={{ bgcolor: '#fafafa' }}>
     //   <tbody>
     <tr>
-      <td>{barcode}</td>
-      <td>{сolor}</td>
+      <td>{ean}</td>
+      <td>{color}</td>
       <td>{size}</td>
       <td>{season}</td>
       <td>{rrp}</td>
       <td>{rrp_uah}</td>
-      <td>{quantity}</td>
+      <td>{qty}</td>
       <td>
         <Input
           sx={{ bgcolor: 'white', width: '80px', height: '20px' }}
@@ -37,12 +39,13 @@ export const TableWithGoodsInfo = ({
             dispatch(
               getInfoFromOrderForBasket({
                 qty: +e.target.value,
-                ean: barcode,
-                сolor: сolor,
+                ean: ean,
+                color: color,
                 size: size,
                 rrp: rrp,
                 sku: sku,
-                title: title
+                title: title,
+                brand: brand
               })
             )
           }

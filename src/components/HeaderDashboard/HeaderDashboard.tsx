@@ -12,21 +12,27 @@ import Avatar from '@mui/material/Avatar';
 import PhoneSharpIcon from '@mui/icons-material/PhoneSharp';
 import { StyledToolbar } from './HeaderDachBoardStyled';
 import { Box } from '@mui/system';
-import axios from 'axios';
 import { useState } from 'react';
 import { ExampleСurrency } from '../../api/currencyQuerry/currencyQuerry';
 import { useAppSelector } from 'api/hooks';
+import { CardInfoTypes } from 'types/types';
 
-interface BasketProps {
+export interface BasketProps {
   handleBasket: () => void;
+  a: number;
+  qty: number;
+  rrp: string;
 }
 
 export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
-  // console.log(goodsInfoForBasket);
+  console.log(goodsInfoForBasket);
 
-  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
-  const sumForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty * Number(v.rrp), 0);
+  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v: BasketProps) => a + v.qty, 0);
+  const sumForBadgeOfBasket = goodsInfoForBasket.reduce(
+    (a, v: BasketProps) => a + v.qty * Number(v.rrp),
+    0
+  );
 
   return (
     <Box sx={{ display: 'flex', flex: 1 }}>

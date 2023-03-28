@@ -102,11 +102,11 @@ const goodsSlice = createSlice({
     //     : state.goodsFilteredByGenderArr.push(action.payload);
     // },
     getInfoFromOrderForBasket(state, action) {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.goodsInfoForBasket.push(action.payload);
     },
     deleteOrderFromBasket(state, action) {
-      console.log(action.payload);
+      // console.log(action.payload);
       state.goodsInfoForBasket = state.goodsInfoForBasket.filter(
         (item: any) => item.ean !== action.payload
       );
