@@ -3,8 +3,19 @@ import { Box } from '@mui/system';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { deleteOrderFromBasket } from 'store/goodsSlice';
 import { useAppDispatch } from 'api/hooks';
+import { CardInfoTypes } from 'types/types';
+import { omittedForBasketItem } from './Basket';
 
-export const BasketItem = ({ ean, color, rrp, size, qty, sku, title, brand }) => {
+export const BasketItem: React.FC<omittedForBasketItem> = ({
+  ean,
+  color,
+  rrp,
+  size,
+  qty,
+  sku,
+  title,
+  brand
+}) => {
   const dispatch = useAppDispatch();
   const brandname = brand.toLocaleLowerCase().replace(/(\.|-|\/|\\| )/g, '');
   const model = sku.toLocaleLowerCase().replaceAll(' ', '-');
@@ -43,7 +54,7 @@ export const BasketItem = ({ ean, color, rrp, size, qty, sku, title, brand }) =>
         </Box>
         <Box>{rrp}</Box>
         <Box>{qty}</Box>
-        <Box>{qty * rrp}</Box>
+        <Box>{qty * Number(rrp)}</Box>
         <IconButton onClick={() => dispatch(deleteOrderFromBasket(ean))}>
           <HighlightOffIcon />
         </IconButton>

@@ -66,7 +66,6 @@ const accordContent = [
 
 export const Accordeon = () => {
   const dispatch = useAppDispatch();
-  // const [filteringQueryString, setFilteringQueryString] = useQueryParam('eeeeee', StringParam);
   return (
     <Box>
       {accordContent.map((item) => (

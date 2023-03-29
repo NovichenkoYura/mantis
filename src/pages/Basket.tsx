@@ -11,6 +11,10 @@ import { BasketItem } from './BasketItem';
 import { useAppSelector } from 'api/hooks';
 import { CardInfoTypes } from 'types/types';
 import { BasketProps } from '../components/HeaderDashboard/HeaderDashboard';
+export type omittedForBasketItem = Omit<
+  CardInfoTypes,
+  'season' | 'rrp_uah' | 'category' | 'activity' | 'gender'
+>;
 
 export const Basket = (props: any) => {
   const { closeBasket = Function.prototype, basketOpen } = props;
@@ -63,7 +67,7 @@ export const Basket = (props: any) => {
           pt: 0.5,
           pb: 0
         }}>
-        {goodsInfoForBasket?.map((item: CardInfoTypes) => (
+        {goodsInfoForBasket?.map((item: omittedForBasketItem) => (
           <BasketItem
             key={item.ean}
             ean={item.ean}

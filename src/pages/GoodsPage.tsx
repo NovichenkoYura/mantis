@@ -24,7 +24,6 @@ export const GoodsPage = () => {
         <HeaderDashboard handleBasket={() => setBasketOpen(true)} />
         <Box sx={{ display: 'flex', flexDirection: 'row' }}>
           <Accordeon />
-          {/* <FiltersForGoods /> */}
           <CardList />
 
           {/* <SideBar cartOpen={cartOpen} closeCart={() => setCartOpen(false)} /> */}

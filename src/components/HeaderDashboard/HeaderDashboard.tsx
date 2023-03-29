@@ -16,15 +16,23 @@ import { useState } from 'react';
 import { ExampleСurrency } from '../../api/currencyQuerry/currencyQuerry';
 import { useAppSelector } from 'api/hooks';
 import { CardInfoTypes } from 'types/types';
+import { boolean } from 'yup';
 
 export interface BasketProps {
-  handleBasket: () => void;
   a: number;
   qty: number;
   rrp: string;
 }
 
-export const HeaderDashboard: React.FC<BasketProps> = ({ handleBasket }) => {
+export interface BasketCallback {
+  handleBasket: () => void;
+}
+
+// type CallBackHandler = () => void;
+// export const HeaderDashboard = ({ handleBasket })
+
+export const HeaderDashboard = (props: BasketCallback) => {
+  const { handleBasket } = props;
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
   console.log(goodsInfoForBasket);
 
