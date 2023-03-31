@@ -19,7 +19,7 @@ export const CheckBoxLoginForm = () => {
               }}
             />
           }
-          label={<CustomTypograthy> Запам'ятати</CustomTypograthy>}
+          label={<CustomTypograthy> Remember</CustomTypograthy>}
         />
       </FormGroup>
     </CustomTypograthy>

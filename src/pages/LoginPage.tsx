@@ -104,7 +104,7 @@ export const LoginPage = () => {
                 fontSize={13}
                 sx={{ color: 'rgb(251, 140, 0)' }}
                 fontWeight={700}>
-                Забули пароль?
+                Forget the password?
               </Typography>
             </Box>
 
@@ -115,7 +115,7 @@ export const LoginPage = () => {
                 justifyContent="center"
                 alignItems="center"
                 component={'div'}>
-                <StyledButtonWrapper type="submit">УВІЙТИ</StyledButtonWrapper>
+                <StyledButtonWrapper type="submit">ENTER</StyledButtonWrapper>
               </Box>
             </DialogActions>
           </form>
