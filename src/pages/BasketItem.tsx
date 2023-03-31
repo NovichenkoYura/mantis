@@ -3,10 +3,10 @@ import { Box } from '@mui/system';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { deleteOrderFromBasket } from 'store/goodsSlice';
 import { useAppDispatch } from 'api/hooks';
-import { CardInfoTypes } from 'types/types';
-import { omittedForBasketItem } from './Basket';
+import { CardInfoTypes, TypesForBasket } from 'types/types';
+// import { omittedForBasketItem } from './Basket';
 
-export const BasketItem: React.FC<omittedForBasketItem> = ({
+export const BasketItem: React.FC<TypesForBasket> = ({
   ean,
   color,
   rrp,

@@ -1,5 +1,6 @@
 import { title } from 'process';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CardInfoTypes, TypesForBasket } from 'types/types';
 
 interface Goods {
   goodsFilteredByBrandsArr: number[];
@@ -7,7 +8,7 @@ interface Goods {
   goodsFilteredBySeasonsArr: number[];
   goodsFilteredByActivitiesArr: number[];
   goodsFilteredByGenderArr: number[];
-  goodsInfoForBasket: [];
+  goodsInfoForBasket: TypesForBasket[];
 }
 
 const initialState: Goods = {
@@ -67,7 +68,7 @@ const goodsSlice = createSlice({
       }
     },
 
-    getInfoFromOrderForBasket(state, action) {
+    getInfoFromOrderForBasket(state, action: PayloadAction<TypesForBasket>) {
       state.goodsInfoForBasket.push(action.payload);
     },
     deleteOrderFromBasket(state, action) {

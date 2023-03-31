@@ -14,3 +14,26 @@ export interface CardInfoTypes {
   rrp: string;
   rrp_uah: string;
 }
+
+export interface TypesForBasket {
+  sku: string;
+  title: string;
+  brand: string;
+  qty: number;
+  ean: string;
+  color: string;
+  size: string;
+  rrp: string;
+}
+
+export interface HeaderDashboardProps {
+  handleBasket: () => void;
+  a: number;
+  qty: number;
+  rrp: string;
+}
+
+export interface BasketProps extends HeaderDashboardProps {
+  closeBasket: () => void;
+  basketOpen: () => void;
+}

@@ -15,32 +15,17 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import { ExampleСurrency } from '../../api/currencyQuerry/currencyQuerry';
 import { useAppSelector } from 'api/hooks';
-import { CardInfoTypes } from 'types/types';
-import { boolean } from 'yup';
+import { CardInfoTypes, HeaderDashboardProps } from 'types/types';
 
-export interface BasketProps {
-  a: number;
-  qty: number;
-  rrp: string;
-}
-
-export interface BasketCallback {
-  handleBasket: () => void;
-}
-
-// type CallBackHandler = () => void;
 // export const HeaderDashboard = ({ handleBasket })
 
-export const HeaderDashboard = (props: BasketCallback) => {
+export const HeaderDashboard: React.FC<HeaderDashboardProps> = (props) => {
   const { handleBasket } = props;
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
   console.log(goodsInfoForBasket);
 
-  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v: BasketProps) => a + v.qty, 0);
-  const sumForBadgeOfBasket = goodsInfoForBasket.reduce(
-    (a, v: BasketProps) => a + v.qty * Number(v.rrp),
-    0
-  );
+  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
+  const sumForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty * Number(v.rrp), 0);
 
   return (
     <Box sx={{ display: 'flex', flex: 1 }}>

@@ -9,22 +9,18 @@ import { useState } from 'react';
 import { StyledButtonWrapper } from 'components/common/Button/Button';
 import { BasketItem } from './BasketItem';
 import { useAppSelector } from 'api/hooks';
-import { CardInfoTypes } from 'types/types';
-import { BasketProps } from '../components/HeaderDashboard/HeaderDashboard';
-export type omittedForBasketItem = Omit<
-  CardInfoTypes,
-  'season' | 'rrp_uah' | 'category' | 'activity' | 'gender'
->;
+import { CardInfoTypes, TypesForBasket, BasketProps } from 'types/types';
+// export type omittedForBasketItem = Omit<
+//   CardInfoTypes,
+//   'season' | 'rrp_uah' | 'category' | 'activity' | 'gender'
+// >;
 
-export const Basket = (props: any) => {
+export const Basket: React.FC<BasketProps> = (props) => {
   const { closeBasket = Function.prototype, basketOpen } = props;
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
   console.log(goodsInfoForBasket);
-  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v: BasketProps) => a + v.qty, 0);
-  const sumForBadgeOfBasket = goodsInfoForBasket.reduce(
-    (a, v: BasketProps) => a + v.qty * Number(v.rrp),
-    0
-  );
+  const qtyForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty, 0);
+  const sumForBadgeOfBasket = goodsInfoForBasket.reduce((a, v) => a + v.qty * Number(v.rrp), 0);
 
   return (
     <Drawer
@@ -67,7 +63,7 @@ export const Basket = (props: any) => {
           pt: 0.5,
           pb: 0
         }}>
-        {goodsInfoForBasket?.map((item: omittedForBasketItem) => (
+        {goodsInfoForBasket?.map((item: TypesForBasket) => (
           <BasketItem
             key={item.ean}
             ean={item.ean}
