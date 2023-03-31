@@ -33,7 +33,24 @@ export interface HeaderDashboardProps {
   rrp: string;
 }
 
-export interface BasketProps extends HeaderDashboardProps {
+// import { Dialog as MuiDialog, DialogProps as MuiDialogProps } from '@mui/material';
+
+type CloseReason = 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick';
+
+// interface DialogProps extends MuiDialogProps {
+//   onClose: (reason: CloseReason) => void;
+// }
+
+// export interface BasketProps extends HeaderDashboardProps {
+//   closeBasket: () => void;
+//   onClose: () => void;
+//   basketOpen: boolean;
+// }
+
+export interface TypesForGoodsPage {
   closeBasket: () => void;
-  basketOpen: () => void;
+  onClose: () => void;
+  basketOpen: boolean;
 }
+
+export interface BasketProps extends HeaderDashboardProps, TypesForGoodsPage {}

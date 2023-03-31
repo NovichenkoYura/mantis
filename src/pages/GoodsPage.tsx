@@ -6,8 +6,9 @@ import { HeaderDashboard } from 'components/HeaderDashboard/HeaderDashboard';
 import { SideBar } from 'components/SideBar/SideBar';
 import { Basket } from 'pages/Basket';
 import { useState } from 'react';
+import { CardInfoTypes, TypesForGoodsPage, BasketProps } from 'types/types';
 
-export const GoodsPage = () => {
+export const GoodsPage: React.FC<BasketProps> = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [basketOpen, setBasketOpen] = useState(false);
 

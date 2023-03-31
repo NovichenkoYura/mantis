@@ -15,11 +15,11 @@ import { Box } from '@mui/system';
 import { useState } from 'react';
 import { ExampleСurrency } from '../../api/currencyQuerry/currencyQuerry';
 import { useAppSelector } from 'api/hooks';
-import { CardInfoTypes, HeaderDashboardProps } from 'types/types';
+import { CardInfoTypes, HeaderDashboardProps, BasketProps } from 'types/types';
 
 // export const HeaderDashboard = ({ handleBasket })
 
-export const HeaderDashboard: React.FC<HeaderDashboardProps> = (props) => {
+export const HeaderDashboard: React.FC<BasketProps> = (props) => {
   const { handleBasket } = props;
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
   console.log(goodsInfoForBasket);
