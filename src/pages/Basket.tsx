@@ -1,6 +1,6 @@
 import List from '@mui/material/List';
 import { Avatar, Box, Divider, ListItemAvatar, ListItemIcon } from '@mui/material';
-import Drawer from '@mui/material/Drawer/Drawer';
+import Drawer, { DrawerProps } from '@mui/material/Drawer/Drawer';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
@@ -15,6 +15,10 @@ import { CardInfoTypes, TypesForBasket, BasketProps } from 'types/types';
 //   'season' | 'rrp_uah' | 'category' | 'activity' | 'gender'
 // >;
 
+// interface ICustomDialog extends Omit<DrawerProps, 'onClose'> {
+//   onClose: (event: {}, reason: 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick') => void;
+// }
+
 export const Basket: React.FC<BasketProps> = (props) => {
   const { closeBasket = Function.prototype, basketOpen } = props;
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
@@ -26,7 +30,7 @@ export const Basket: React.FC<BasketProps> = (props) => {
     <Drawer
       anchor="right"
       open={basketOpen}
-      onClose={closeBasket}
+      onClose={() => closeBasket}
       BackdropProps={{ style: { backgroundColor: 'transparent' } }}>
       <Box
         sx={{

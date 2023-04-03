@@ -28,18 +28,18 @@ export interface TypesForBasket {
 
 export interface HeaderDashboardProps {
   handleBasket: () => void;
-  a: number;
-  qty: number;
-  rrp: string;
+  a?: number;
+  qty?: number;
+  rrp?: string;
 }
 
 // import { Dialog as MuiDialog, DialogProps as MuiDialogProps } from '@mui/material';
 
-type CloseReason = 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick';
+// type CloseReason = 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick';
 
 // interface DialogProps extends MuiDialogProps {
 //   onClose: (reason: CloseReason) => void;
-// }
+// // }
 
 // export interface BasketProps extends HeaderDashboardProps {
 //   closeBasket: () => void;
@@ -48,9 +48,20 @@ type CloseReason = 'backdropClick' | 'escapeKeyDown' | 'closeButtonClick';
 // }
 
 export interface TypesForGoodsPage {
-  closeBasket: () => void;
-  onClose: () => void;
-  basketOpen: boolean;
+  closeBasket?: () => void;
+  onClose?: () => void;
+  basketOpen?: boolean;
 }
 
-export interface BasketProps extends HeaderDashboardProps, TypesForGoodsPage {}
+// export interface BasketProps extends HeaderDashboardProps, TypesForGoodsPage {}
+
+export interface BasketProps {
+  handleBasket?: () => void;
+  closeBasket: () => void;
+  // onClose?: ((event: {}, reason: 'backdropClick' | 'escapeKeyDown') => void) | undefined;
+  onClose?: () => void;
+  basketOpen: boolean;
+  a?: number;
+  qty?: number;
+  rrp?: string;
+}

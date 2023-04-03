@@ -19,7 +19,7 @@ import { CardInfoTypes, HeaderDashboardProps, BasketProps } from 'types/types';
 
 // export const HeaderDashboard = ({ handleBasket })
 
-export const HeaderDashboard: React.FC<BasketProps> = (props) => {
+export const HeaderDashboard: React.FC<HeaderDashboardProps> = (props) => {
   const { handleBasket } = props;
   const { goodsInfoForBasket } = useAppSelector((state) => state.goods);
   console.log(goodsInfoForBasket);

@@ -8,7 +8,7 @@ import { Basket } from 'pages/Basket';
 import { useState } from 'react';
 import { CardInfoTypes, TypesForGoodsPage, BasketProps } from 'types/types';
 
-export const GoodsPage: React.FC<BasketProps> = () => {
+export const GoodsPage: React.FC<TypesForGoodsPage> = () => {
   const [cartOpen, setCartOpen] = useState(false);
   const [basketOpen, setBasketOpen] = useState(false);
 
